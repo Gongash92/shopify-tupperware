@@ -1,0 +1,40 @@
+{
+	"name": "tupperware-tnt",
+	"version": "1.1.0",
+	"description": "",
+	"keywords": [
+		"tupperware",
+		"tnt",
+		"yellow"
+	],
+	"scripts": {
+		"gulp": "gulp",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Nicey Consulting <office@nicey.rs>",
+	"license": "MIT",
+	"devDependencies": {
+		"autoprefixer": "^9.4.3",
+		"browser-sync": "^2.26.3",
+		"codyhouse-framework": "^2.9.1",
+		"gulp": "^4.0.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-postcss": "^8.0.0",
+		"gulp-rename": "^1.4.0",
+		"gulp-replace": "^1.0.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-sass-glob": "^1.1.0",
+		"gulp-uglify": "^3.0.2",
+		"laravel-mix": "^6.0.27",
+		"postcss": "^8.1.14",
+		"postcss-calc": "^7.0.1",
+		"postcss-css-variables": "git+https://github.com/CodyHouse/postcss-css-variables"
+	},
+	"homepage": "tupperware-tnt.rs",
+	"dependencies": {
+		"gulp-purgecss": "^3.0.0",
+		"vue": "^2.6.12",
+		"vue-infinite-loading": "^2.4.5",
+		"prettier": "2.4.0"
+	}
+}

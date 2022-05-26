@@ -1,0 +1,147 @@
+<section class="products-gallery padding-y-xl bg-primary-dark">
+	<div class="container max-width-adaptive-lg" id="akcija">
+		<div class="margin-bottom-lg">
+			<div class="flex flex-wrap items-end justify-between@md">
+				<div>
+					<h2 class="padding-bottom-xxs color-white">Tupperware promocija u toku</h2>
+					<p class="color-contrast-lower">Požuri i iskoristi proizvode po posebnim cenama.</p>
+				</div>
+				<div class="margin-top-sm margin-top-0@md">
+					<a href="/collections/akcijska-ponuda" class="btn btn--accent" role="text">Pogledaj još <i
+							class="sr-only">products</i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid gap-md">
+			<template v-if="upsells.length > 0">
+				<template v-for="(upsell, index) in upsells">
+
+					<div class="prod-card shadow-sm col-3@md bg-white radius-lg">
+						<template v-if="upsell.price_money_2 > '0'">
+							<span class="prod-card__badge" role="text">Akcija</span>
+						</template>
+
+						<template v-if="upsell.tag === 'Novo'">
+							<span class="prod-card__badge-novo" role="text">Novo</span>
+						</template>
+
+						<a class="prod-card__img-link" :href="upsell.product_url" aria-label="Description of the link">
+							<figure class="prod-card__img ">
+								<img class="radius-lg" :src="upsell.image" :alt="upsell.altTag">
+							</figure>
+						</a>
+
+						<div id="akcija-pocetna" class="padding-sm text-center grid justify-between gap-xxs">
+							<a class="color-inherit font-bold text-md@md text-decoration-none" :href="upsell.product_url" v-html="upsell.title"></a>
+
+							<template v-if="upsell.price_money_2 > '0'">
+								<div class="prod-card__price prod-card__price--old text-sm">${formatPrice(upsell.price_money_2)} RSD</div>
+							</template>
+
+							<div class="prod-card__price text-md@md" v-html="upsell.price_money"></div>
+
+							<div class="margin-top-md">
+								<a :href="upsell.product_url" class="btn btn--primary width-100%" role="text">Saznaj više
+									<i class="sr-only"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+				</template>
+			</template>
+		</div>
+	</div>
+</section>
+
+
+
+<script>
+	const akcijaPocetna = {
+		delimiters: ['${', '}'],
+		store,
+
+		data() {
+			// vracane objekta sa vrijednostima
+			return {
+
+				upsells: [
+
+					{% for product in collections['akcija-pocetna'].products %}
+			{
+				title: "{{ product.title }}",
+					handle: "{{product.handle}}",
+						image: "{{ product.featured_image | | img_url: 'master' }}",
+							product_id: "{{product.id}}",
+								variant_id: "{{product.selected_or_first_available_variant.id}}",
+									price_money: "{{ product.price | money }}",
+										name_collection: "{{collection.title}}",
+											product_url: "{{ product.url }}",
+												altTag: "{{ product.featured_image.alt | escape }}",
+													price_money_2: "{{ product.compare_at_price_min }}",
+														tag: "{{ product.tags }}",
+
+
+
+			},
+			{% endfor %}
+
+]
+			}
+		},
+
+	//poziva se sinhrono nakon kreiranja instance vrijednosti u korpi
+	created() {
+		store.dispatch('get_cart').then(() => this.loading = false);
+	},
+
+	// globalno kroz sve stranice vrijednosti u korpi
+	computed: {
+		cart() {
+			return store.state.cart;
+		},
+	},
+	methods: {
+		// dobijanje vrijednosti korpe
+		get_cart() {
+			$.get('/cart.js')
+				.then(response => JSON.parse(response))
+				.then(cart => {
+					this.set_cart(cart);
+
+				})
+
+		},
+
+		// dodavanje u korpu
+		add_to_cart(id) {
+			store.dispatch('add_to_cart', id);
+			this.closeMiniCart();
+
+		},
+
+		// manipulacija sa cart drawerom otvaranje na dodavanje i na klik zatvaranje
+		closeMiniCart() {
+
+			$('#cart-drawer-1').addClass('drawer--is-visible');
+			// $('.mini-cart .dropdown-menu').addClass('show');
+			$('#close-test').click(function () {
+				$("#cart-drawer-1").removeClass('drawer--is-visible');
+			});
+
+		},
+		// formatiranje cene proizvoda
+		formatPrice(value) {
+			let val = (value / 100).toFixed(2).replace('.', ',')
+			return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+		}
+	}
+
+
+	};
+	// naziv sekcije koja ide preo Vue mora biti jedinstvena	
+	const akcijePocetna = Vue.createApp(akcijaPocetna)
+	akcijePocetna.mount('#akcija');
+	akcijePocetna.use(store);
+</script>

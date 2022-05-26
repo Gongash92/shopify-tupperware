@@ -1,0 +1,74 @@
+/* -------------------------------- 
+
+File#: _1_tabbed-navigation-v2
+Title: Tabbed Navigation v2
+Descr: Tabbed (secondary) navigation
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.tabs-nav-v2 {
+  --tabs-nav-border-width: 2px;
+  display: flex;
+  justify-content: stretch;
+  
+  border: var(--tabs-nav-border-width) solid var(--color-contrast-low);
+
+  li {
+    display: inline-block; // flexbox fallback
+    margin-right: var(--space-xs);
+    margin-bottom: var(--space-xs);
+    flex-grow: 1;
+  }
+}
+
+.tabs-nav-v2__item {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-accent-low);
+  color: inherit;
+  white-space: nowrap;
+}
+
+.tabs-nav-v2__item--selected,
+.tabs-nav-v2__item[aria-selected="true"] {
+  color: var(--color-white);
+  background-color: var(--color-accent-higher);
+}
+
+@include breakpoint(md) {
+  .tabs-nav-v2 {
+    border: var(--tabs-nav-border-width) solid var(--color-contrast-low);
+    li {
+      margin: 0;
+      
+    }
+  }
+
+  .tabs-nav-v2__item {
+    background-color: var(--color-white);
+    // border: var(--tabs-nav-border-width) solid transparent;
+    // border-bottom-width: 0;
+    text-align: center;
+    width: 100%;
+
+
+    &:hover {
+      background-color: #22cec6;
+    }
+  }
+
+  .tabs-nav-v2__item--selected,
+  .tabs-nav-v2__item[aria-selected="true"] {
+    position: relative;
+    background-color: #22cec6;
+    color: var(--color-white);
+    border-color: #22cec6;
+    width: 100%;
+    text-align: center;
+
+    &:hover {
+      background-color: #22cec6;
+    }
+  }
+}

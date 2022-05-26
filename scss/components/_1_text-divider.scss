@@ -1,0 +1,25 @@
+.text-divider {
+  margin: var(--space-lg) auto;
+  display: flex;
+  text-align: center;
+  align-items: center;
+
+  &::before {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    flex-grow: 1;
+    background: var(--color-contrast-lower);
+    vertical-align: middle;
+  }
+}
+
+.text-component .text-divider {
+  margin: calc(var(--space-md) * var(--text-vspace-multiplier)) auto;
+}
+
+.divder-center {
+  display: flex;
+  justify-content: center;
+}

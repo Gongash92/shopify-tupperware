@@ -1,0 +1,78 @@
+<section class="contact-v3 position-relative z-index-1 margin-y-lg">
+	<div class="container max-width-xs margin-bottom-lg">
+		<div class="text-component text-center">
+			<h1>Kontaktirajte nas</h1>
+			<p>
+				Tupperware posuđe je najzdravije plastično posuđe na tržištu. <br />
+				Omogućava duže, zdravije i trajnije čuvanje namirnica za ishranu. <br />
+				Ukoliko imate dodatnih pitanja ili nejasnoća, stojimo Vam na raspolaganju.
+			</p>
+		</div>
+	</div>
+
+	<div class="container max-width-adaptive-md">
+		<div class="grid gap-lg">
+			<div class="col-6@md">
+				<dl class="details-list details-list--rows">
+					<div class="details-list__item padding-y-md">
+						<dt class="font-bold margin-bottom-xxs">Adresa</dt>
+						<dd class="line-height-md">Cara Dušana 73a<br />11080 <br />Zemun, Srbija</dd>
+					</div>
+
+					<div class="details-list__item padding-y-md">
+						<dt class="font-bold margin-bottom-xxs">Email</dt>
+						<dd>
+							<a href="mailto:tntwebshoptupperware@gmail.com">tntwebshoptupperware@gmail.com</a>
+						</dd>
+					</div>
+
+					<div class="details-list__item padding-y-md">
+						<dt class="font-bold margin-bottom-xxs">Telefon</dt>
+						<dd class="line-height-md">
+							<p><a href="tel:+381 112101955">011 2101955</a></p>
+						</dd>
+
+						<dt class="font-bold margin-y-xxs">Mobilni</dt>
+						<dd class="line-height-md">
+							<p><a href="tel:+381 602442449">+381 602442449</a></p>
+							<p class="color-contrast-medium">Pon - Pet, 8 - 16h</p>
+						</dd>
+					</div>
+				</dl>
+			</div>
+
+			<div class="col-6@md">
+				{% form 'contact' %} {% if form.posted_successfully? %} Poruka je uspešno poslata {% endif %}
+				{{ form.errors | default_errors }}
+				<div class="margin-bottom-sm">
+					<label class="form-label margin-bottom-xxs" for="contactName">Ime i prezime:</label>
+					<input class="form-control width-100%" type="text" id="ContactFormName" name="contact[name]" required />
+				</div>
+
+				<div class="margin-bottom-sm">
+					<label class="form-label margin-bottom-xxs" for="contactEmail">Email</label>
+					<input class="form-control width-100%" type="email" id="ContactFormEmail" name="contact[email]" required />
+				</div>
+
+				<div class="margin-bottom-sm">
+					<label class="form-label margin-bottom-xxs" for="contactMessage">Poruka</label>
+					<textarea class="form-control width-100%" rows="9" id="ContactFormMessage" name="contact[body]"></textarea>
+				</div>
+
+				<div class="text-right">
+					<button class="btn btn--primary" type="submit" value="send">Pošalji</button>
+				</div>
+				{% endform %}
+			</div>
+		</div>
+	</div>
+</section>
+
+<iframe
+	src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2828.57748370921!2d20.396399115537058!3d44.850537279098525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a65b5db1606d7%3A0x3cf16426cea00d8e!2sCara%20Du%C5%A1ana%2073%2C%20Beograd!5e0!3m2!1sen!2srs!4v1625299357363!5m2!1sen!2srs"
+	width="100%"
+	height="450"
+	style="border: 0"
+	allowfullscreen=""
+	loading="lazy"
+></iframe>

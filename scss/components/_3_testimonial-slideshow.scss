@@ -1,0 +1,26 @@
+:root {
+  --testimonial-slideshow-profile-img-size: 120px;
+
+  @include breakpoint(md) {
+    --testimonial-slideshow-profile-img-size: 64px;
+  }
+}
+
+.testimonial-slideshow {
+  --slideshow-height: 480px; // update slideshow height - inherited from Slideshow component
+
+  @include breakpoint(md) {
+    --slideshow-height: 420px;
+  }
+}
+
+.testimonial-slideshow__profile-img {
+  width: var(--testimonial-slideshow-profile-img-size);
+  height: var(--testimonial-slideshow-profile-img-size);
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}

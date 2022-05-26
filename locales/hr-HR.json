@@ -1,0 +1,150 @@
+{
+  "shopify": {
+    "checkout": {
+      "general": {
+        "back_to_cart": "Nazad u korpu",
+        "cart": "Korpa",
+        "continue_to_review": "Pregledaj porudžbinu",
+        "complete_purchase_button_label": "Završi porudžbinu",
+        "all_rights_reserved": " \n",
+        "continue_to_shipping_method": "Nastavak"
+      },
+      "failed_payment": {
+        "payment_not_processed_text": "Ništa ti nije naplaćeno. Vrati se u korpu i završi kupovinu.\n",
+        "return_to_cart_button_label": "Vrati se u korpu"
+      },
+      "payment_errors": {
+        "order_total_changed": "Ukupan se iznos narudžbe promenio. Osveži korpu i pokušaj ponovo.\n"
+      },
+      "marketing": {
+        "unsubscribe": {
+          "description": "Od nas više nećeš primati podsetnike za korpu.\n"
+        },
+        "accept_marketing_checkbox_label": "Obavesti me o novostima i ponudama"
+      },
+      "shipping": {
+        "no_rates_for_cart_or_destination_notice": "Za tvoju korpu ili adresu nema dostupnih načina dostave\n",
+        "shipping_line_phone_label": "Broj telefona(obavezno)\n",
+        "shipping_line_delivery_phone_label": "Broj telefona",
+        "subscription_delivery_description": {
+          "free_for_first_n_order": {
+            "one": "Za prvu porudžbinu"
+          }
+        },
+        "title": "Poštarina\n"
+      },
+      "contact": {
+        "email_or_phone_label": "E-pošta ili broj telefona\n",
+        "email_or_phone_placeholder": "E-pošta ili broj telefona\n",
+        "optional_address2_label": "Broj stana, kuće",
+        "optional_first_name_label": "Ime"
+      },
+      "order_summary": {
+        "subtotal_label": "Međuzbir",
+        "shipping_default_value": "Izračunava se u sledećem koraku\n",
+        "product_change_label": "Promeni",
+        "shopping_cart_label": "Korpa",
+        "vat_label_html": "   ",
+        "order_name_label": "Porudžbina {{ name }}",
+        "expand_order_summary": "Prikaži Vašu porudžbinu",
+        "collapse_order_summary": "Sakrijte Vašu porudžbinu",
+        "apply_discount_button_label": "Primeni",
+        "discount_requires_customer_notice": "Unesite podatke za dostavu kako bi se primenio kod za popust <strong style=\"text-transform:uppercase\">{{ code }}<\/strong>"
+      },
+      "customer_account": {
+        "save_my_information_label": "Sačuvaj ove informacije za sledeći put"
+      },
+      "field_errors": {
+        "email_or_phone_invalid": "Unesite ispravan broj telefona"
+      },
+      "payment": {
+        "card_change_label": "Promeni",
+        "card_security_notice": "Sve su transakcije sigurne i šifrovane.\n",
+        "card_security_vault_notice": "Potrebni su nam tvoji podaci za buduća plaćanja. Sve su transakcije sigurne i šifrovane.\n",
+        "billing_address_description": " ",
+        "discount_button_action_label": "Primeni kod za popust",
+        "apply_gift_card_button_label": "Primeni"
+      },
+      "review": {
+        "blocks": {
+          "change_link_label": "Promeni",
+          "change_contact_method_link_label": "Promeni informacije za kontakt\n",
+          "change_billing_address_link_label": "Promeni adresu za naplatu\n",
+          "change_shipping_address_link_label": "Promeni adresu za dostavu\n",
+          "change_shipping_method_link_label": "Promeni način dostave\n",
+          "change_payment_method_link_label": "Promeni način plaćanja\n"
+        }
+      },
+      "shipping_errors": {
+        "shipping_method_not_available": "Tvoja korpa se ažurirala, a dodati se artikli ne mogu dostaviti na tvoju adresu. Ukloni artikle da bi završio porudžbinu.\n",
+        "shipping_method": "Tvoja korpa se ažurirala pa stara cena dostave više ne vredi. Odaberi novu cenu.\n"
+      },
+      "change_country": {
+        "cart_updated_based_on_country": "Korpa je ažurirana u skladu s tvojom državom dostave.\n"
+      },
+      "thank_you": {
+        "confirmed_title": "Vaša porudžbina je potrvđena",
+        "return_to_store_link_label": "Nastavi sa kupovinom",
+        "title": "Hvala Vam na kupovini!",
+        "contact_us_html": "Potrebna je dodatna pomoć? {{ contact_us }}\n",
+        "contact_us": "Kontakt stranica",
+        "contact_us_lowercase": "Kontakt stranica",
+        "order_number_label": "Broj porudžbine",
+        "thank_you_title": "Tvoja porudžbina je potvrđena",
+        "order_updates_title": "Novosti o porudžbini",
+        "order_status_updates_with_email": "Novosti o isporuci i isporuci dobijate e-mailom.",
+        "order_status_updates_with_phone": "Novosti o isporuci i isporuci dobijate SMS-om.",
+        "order_status_updates_with_email_and_phone": "Novosti o isporuci i isporuci dobijate e-mailom i SMS-om."
+      },
+      "processing": {
+        "wait": {
+          "short": "Tvoja se porudžbina obrađuje",
+          "no_auto_refresh_html": "Ako se preusmeravanje nije desilo automatski, idi na {{ link }}.",
+          "refresh_this_page": "osveži ovu stranicu"
+        },
+        "your_order_has_been_received_title": "Hvala Vam na porudžbini\n"
+      },
+      "shop_policies": {
+        "terms_of_service": "Uslovi korišćenja",
+        "legal_notice": "Pravno obaveštenje",
+        "terms_of_sale": "Uslovi prodaje"
+      }
+    },
+    "notices": {
+      "cart": {
+        "empty_update": "ne možete ažurirati praznu korpu\n",
+        "only_n_items_available": "U korpu možete dodati samo {{ count }}{{ name }}.\n",
+        "too_many_items_in_cart": "{{ name }} se više ne može dodati u korpu.\n",
+        "all_items_in_cart": "U korpi su svi {{ count }}{{ name }}.\n",
+        "stock_problems_html": "Neki artikli više nisu dostupni. Ponudili smo <a href='{{ link }}'>ažurirana korpa<\/a>.\n",
+        "shipping_address_not_required": "Za tu korpu nije potrebna dostava\n",
+        "items_changed": "Neki su se artikli promenili.\n",
+        "changed": "Korpa je promenjena\n",
+        "selling_plan_not_applicable": "Prodajna tarifa ne može se primeniti na tu varijantu"
+      },
+      "order": {
+        "cancel_reason": {
+          "customer": "Kupac je promenio\/otkazao narudžbu\n"
+        }
+      }
+    },
+    "filters": {
+      "price": {
+        "label": "Cena"
+      }
+    },
+    "page_titles": {
+      "shopping_cart": "Vaša korpa",
+      "collections": "Tupperware Asortiman | Online prodavnica"
+    },
+    "errors": {
+      "gift_card_currency_mismatch": "Poklon-kartice u {{ gift_card_currency }} ne mogu se primeniti na porudžbine u {{ checkout_currency }}"
+    }
+  },
+  "general": {
+    "404": {
+      "title": "Nije pronadjeno",
+      "subtext_html": "Stranica koju tražite ne postoji"
+    }
+  }
+}

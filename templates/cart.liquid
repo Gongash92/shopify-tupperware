@@ -1,0 +1,96 @@
+<section id="cart-form" class="cart">
+	<div class="container max-width-adaptive-lg padding-y-lg">
+		<div class="margin-bottom-lg text-center">
+			<h1>Vaša Korpa</h1>
+		</div>
+		<div class="">
+			<div class="grid gap-md cart-form">
+				<div class="col-8@md">
+					<template v-if="cart.items.length > 0">
+						<!-- cart products 👇 -->
+						<template v-for="item in cart.items">
+							<ol class="margin-bottom-md" aria-label="Products in your cart">
+								<li class="cart__product flex padding-y-sm">
+									<div class="cart__product-img margin-right-sm">
+										<template v-if="item.image">
+											<a :href="item.url">
+												<img class="" :src="item.image" alt="" />
+											</a>
+										</template>
+									</div>
+									<div class="cart__product-info">
+										<div class="text-component v-space-sm">
+											<h2 class="text-md">${item.title}</h2>
+										</div>
+										<div class="cart__product-tot">
+											<div class="select cart__select width-50%">
+												<input
+													@change="update_cart(item.variant_id, item.quantity)"
+													type="number"
+													class="form-control width-xxxl eventBtn"
+													name="updates[]"
+													:id="'updates_'+item.key"
+													v-model="item.quantity"
+													min="1"
+													aria-label="{{ 'cart.general.item_quantity' | t }}"
+												/>
+											</div>
+										</div>
+										<p class="text-md" v-html="item.formatted_final_price"></p>
+										<a class="color-error" href="#" @click="remove_from_cart(item.variant_id)">Ukloni</a>
+									</div>
+								</li>
+							</ol>
+						</template>
+					</template>
+					<template v-else>
+						<div>
+							<p>Vasa Korpa je prazna</p>
+						</div>
+					</template>
+				</div>
+				<div class="col-4@md">
+					<!-- cart subtotal 👇 -->
+					<div class="cart__subtotal">
+						<div class="flex justify-between">
+							<p>Ukupno:</p>
+							<p v-html="cart.formatted_total_price"></p>
+						</div>
+						<a href="/checkout/" class="btn btn--primary btn--md width-100% margin-y-xs">Poruči &rarr;</a>
+						<p class="color-contrast-medium text-sm text-center display@md">PDV je obračunat u cenu</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const CartFormOptions = {
+		store,
+		delimiters: ["${", "}"],
+
+		created() {
+			store.dispatch("get_cart").then(() => (this.loading = false));
+		},
+		computed: {
+			cart() {
+				return store.state.cart;
+			},
+		},
+		methods: {
+			update_cart(id, qty) {
+				store.dispatch("update_cart", { id, qty });
+			},
+
+			remove_from_cart(id) {
+				const qty = 0;
+				store.dispatch("update_cart", { id, qty });
+			},
+		},
+	};
+
+	const CartPage = Vue.createApp(CartFormOptions);
+	CartPage.mount("#cart-form");
+	CartPage.use(store);
+</script>

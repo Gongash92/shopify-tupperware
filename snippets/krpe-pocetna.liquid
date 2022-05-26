@@ -1,0 +1,155 @@
+<section class="products-gallery-v2 padding-top-lg padding-bottom-md">
+	<div class="container max-width-adaptive-lg" id="krpe">
+		<div class="grid">
+			<div class="col-4@lg margin-bottom-md">
+				<div class="text-component text-center text-left@lg">
+					<h2>Tupperware krpe</h2>
+					<p>Smanjite korišćenje hemijskih sredstava za čišćenje, uz naše mikrofiber krpe</p>
+					<p>
+						<a href="/collections/krpe-od-mikrofibera" class="btn btn--primary margin-top-md" role="text">Ponuda
+							mikrofiber krpa<i class="sr-only">proizvode</i></a>
+					</p>
+				</div>
+			</div>
+
+			<div class="col-8@lg">
+				<div class="carousel flex flex-column js-carousel" data-drag="on" data-loop="off" data-navigation="on" data-navigation-class="carousel__navigation order-3">
+					<p class="sr-only">Carousel items</p>
+
+					<div class="carousel__wrapper order-2 overflow-hidden">
+						<template v-if="upsells.length > 0">
+							<ol class="carousel__list">
+								<template v-for="(upsell, index) in upsells">
+									<li class="carousel__item">
+										<div id="pocetna-card">
+											<span class="prod-card-v2__badge" role="text">Popularno <i class="sr-only">proizvod</i></span>
+
+											<a :href="upsell.product_url" class="prod-card-v2__img-link radius-lg"
+												aria-label="Description of the link">
+												<figure>
+													<img :src="upsell.image" :alt="upsell.altTag" />
+												</figure>
+											</a>
+											<div class="padding-y-sm grid justify-between gap-xxs text-center text-left@md">
+												<p class="text-decoration-none">
+													<a :href="upsell.product_url" class="product-card-v2__title" v-html="upsell.title"></a>
+												</p>
+												<div class="margin-top-sm">
+													<span class="prod-card-v2__price" v-html="upsell.price_money"></span>
+												</div>
+												<div class="margin-top-xxs">
+													<a :href="upsell.product_url" class="btn btn--sm btn--secondary" role="text">Saznaj više
+														<i class="sr-only"></i>
+													</a>
+												</div>
+											</div>
+										</div>
+									</li>
+								</template>
+							</ol>
+						</template>
+					</div>
+
+					<nav class="margin-bottom-xs order-1 no-js:is-hidden">
+						<ul class="flex gap-xxxs justify-end">
+							<li>
+								<button class="reset carousel__control carousel__control--prev js-carousel__control js-tab-focus">
+									<svg class="icon" viewBox="0 0 20 20">
+										<title>Show previous items</title>
+										<polyline points="13 2 5 10 13 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+									</svg>
+								</button>
+							</li>
+				
+							<li>
+								<button class="reset carousel__control carousel__control--next js-carousel__control js-tab-focus">
+									<svg class="icon" viewBox="0 0 20 20">
+										<title>Show next items</title>
+										<polyline points="7 2 15 10 7 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+									</svg>
+								</button>
+							</li>
+						</ul>
+					</nav>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const krpePocetna = {
+		delimiters: ['${', '}'],
+		store,
+
+		data() {
+// vracane objekta sa vrijednostima
+			return {
+
+				upsells: [
+
+					{% for product in collections['mikrofiber-krpe-pocetna'].products %}
+			{
+				title: "{{ product.title }}",
+					handle: "{{product.handle}}",
+						image: "{{ product.featured_image | | img_url: 'master' }}",
+							product_id: "{{product.id}}",
+								variant_id: "{{product.selected_or_first_available_variant.id}}",
+									price_money: "{{ product.price | money }}",
+										name_collection: "{{collection.title}}",
+											product_url: "{{ product.url }}",
+												altTag: "{{ product.featured_image.alt | escape }}",
+
+	      },
+			{% endfor %}
+
+	]
+	      }
+	    },
+//poziva se sinhrono nakon kreiranja instance vrijednosti u korpi
+	created() {
+		store.dispatch('get_cart').then(() => this.loading = false);
+	},
+	// vracanje vrijednosti globalne  korpe
+	computed: {
+		cart() {
+			return store.state.cart;
+		},
+	},
+	methods: {
+		// dobijanje vrijednosti korpe
+		get_cart() {
+			$.get('/cart.js')
+				.then(response => JSON.parse(response))
+				.then(cart => {
+					this.set_cart(cart);
+
+				})
+
+		},
+		// dodavanje u korpu
+		add_to_cart(id) {
+			store.dispatch('add_to_cart', id);
+			this.closeMiniCart();
+
+		},
+
+	// manipulacija sa cart drawerom otvaranje na dodavanje i na klik zatvaranje
+		closeMiniCart() {
+			$('#cart-drawer-1').addClass('drawer--is-visible');
+			// $('.mini-cart .dropdown-menu').addClass('show');
+			$('#close-test').click(function () {
+				$("#cart-drawer-1").removeClass('drawer--is-visible');
+			});
+
+		}
+	}
+
+
+	  };
+	// naziv sekcije koja ide preo Vue mora biti jedinstvena	
+	const krpeSekcija = Vue.createApp(krpePocetna)
+	krpeSekcija.mount('#krpe');
+	krpeSekcija.use(store);
+</script>

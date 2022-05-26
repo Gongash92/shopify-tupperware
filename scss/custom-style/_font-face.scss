@@ -1,0 +1,308 @@
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Thinitalic.eot');
+  src: url('TupperPRO-Thinitalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Thinitalic.woff2') format('woff2'),
+      url('TupperPRO-Thinitalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-UltraLightitalic.eot');
+  src: url('TupperPRO-UltraLightitalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-UltraLightitalic.woff2') format('woff2'),
+      url('TupperPRO-UltraLightitalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Medium.eot');
+  src: url('TupperPRO-Medium.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Medium.woff2') format('woff2'),
+      url('TupperPRO-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Mediumitalic.eot');
+  src: url('TupperPRO-Mediumitalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Mediumitalic.woff2') format('woff2'),
+      url('TupperPRO-Mediumitalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Bolditalic.eot');
+  src: url('TupperPRO-Bolditalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Bolditalic.woff2') format('woff2'),
+      url('TupperPRO-Bolditalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Light.eot');
+  src: url('TupperPRO-Light.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Light.woff2') format('woff2'),
+      url('TupperPRO-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Regular.eot');
+  src: url('TupperPRO-Regular.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Regular.woff2') format('woff2'),
+      url('TupperPRO-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Italic.eot');
+  src: url('TupperPRO-Italic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Italic.woff2') format('woff2'),
+      url('TupperPRO-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Heavy.eot');
+  src: url('TupperPRO-Heavy.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Heavy.woff2') format('woff2'),
+      url('TupperPRO-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Thin.eot');
+  src: url('TupperPRO-Thin.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Thin.woff2') format('woff2'),
+      url('TupperPRO-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Bold.eot');
+  src: url('TupperPRO-Bold.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Bold.woff2') format('woff2'),
+      url('TupperPRO-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-UltraLight.eot');
+  src: url('TupperPRO-UltraLight.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-UltraLight.woff2') format('woff2'),
+      url('TupperPRO-UltraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Heavyitalic.eot');
+  src: url('TupperPRO-Heavyitalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Heavyitalic.woff2') format('woff2'),
+      url('TupperPRO-Heavyitalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO';
+  src: url('TupperPRO-Lightitalic.eot');
+  src: url('TupperPRO-Lightitalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRO-Lightitalic.woff2') format('woff2'),
+      url('TupperPRO-Lightitalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Light.eot');
+  src: url('TupperPRONARROW-Light.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Light.woff2') format('woff2'),
+      url('TupperPRONARROW-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Italic.eot');
+  src: url('TupperPRONARROW-Italic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Italic.woff2') format('woff2'),
+      url('TupperPRONARROW-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Heavyitalic.eot');
+  src: url('TupperPRONARROW-Heavyitalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Heavyitalic.woff2') format('woff2'),
+      url('TupperPRONARROW-Heavyitalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Heavy.eot');
+  src: url('TupperPRONARROW-Heavy.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Heavy.woff2') format('woff2'),
+      url('TupperPRONARROW-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-UltraLight.eot');
+  src: url('TupperPRONARROW-UltraLight.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-UltraLight.woff2') format('woff2'),
+      url('TupperPRONARROW-UltraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Thin.eot');
+  src: url('TupperPRONARROW-Thin.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Thin.woff2') format('woff2'),
+      url('TupperPRONARROW-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Regular.eot');
+  src: url('TupperPRONARROW-Regular.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Regular.woff2') format('woff2'),
+      url('TupperPRONARROW-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Lightitalic.eot');
+  src: url('TupperPRONARROW-Lightitalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Lightitalic.woff2') format('woff2'),
+      url('TupperPRONARROW-Lightitalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Bolditalic.eot');
+  src: url('TupperPRONARROW-Bolditalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Bolditalic.woff2') format('woff2'),
+      url('TupperPRONARROW-Bolditalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Thinitalic.eot');
+  src: url('TupperPRONARROW-Thinitalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Thinitalic.woff2') format('woff2'),
+      url('TupperPRONARROW-Thinitalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Medium.eot');
+  src: url('TupperPRONARROW-Medium.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Medium.woff2') format('woff2'),
+      url('TupperPRONARROW-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Mediumitalic.eot');
+  src: url('TupperPRONARROW-Mediumitalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Mediumitalic.woff2') format('woff2'),
+      url('TupperPRONARROW-Mediumitalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-UltraLightitalic.eot');
+  src: url('TupperPRONARROW-UltraLightitalic.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-UltraLightitalic.woff2') format('woff2'),
+      url('TupperPRONARROW-UltraLightitalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TupperPRO NARROW';
+  src: url('TupperPRONARROW-Bold.eot');
+  src: url('TupperPRONARROW-Bold.eot?#iefix') format('embedded-opentype'),
+      url('TupperPRONARROW-Bold.woff2') format('woff2'),
+      url('TupperPRONARROW-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+

@@ -1,0 +1,24 @@
+{
+	"current": {
+		"checkout_logo_image": "shopify://shop_images/tupperware-logo.png",
+		"checkout_logo_size": "medium",
+		"sections": {
+			"header": {
+				"type": "header",
+				"settings": {}
+			},
+			"kartice": {
+				"type": "kartice",
+				"settings": {}
+			},
+			"footer": {
+				"type": "footer",
+				"settings": {}
+			}
+		},
+		"content_for_index": []
+	},
+	"presets": {
+		"Default": {}
+	}
+}

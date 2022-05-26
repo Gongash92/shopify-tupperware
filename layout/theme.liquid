@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+	{% render 'microdata-schema' %}
+	<script type="application/ld+json">
+			{
+				"@context": "https://schema.org/",
+				"@type": "WebSite",
+				"name": "Tupperware Srbija - T&T Yellow",
+				"url": "{{ shop.secure_url }}",
+				"potentialAction": {
+					"@type": "SearchAction",
+					"target": "{{ shop.secure_url }}/search?type=product&q={search_term_string}",
+					"query-input": "required name=search_term_string"
+				}
+			}
+		</script>
+	<script type="application/ld+json">
+			{
+				"@context": "https://schema.org/",
+				"@type": "Organization",
+				"address": {
+							"@type": "PostalAddress",
+							"addressLocality": "Zemun",
+							"addressCountry": "Srbija",
+							"postalCode": "11080",
+							"streetAddress": "Cara Dušana 73"
+							},
+				"email": "tntwebshoptupperware@gmail.com",
+				"name": "Tupperware Srbija - T&T Yellow",
+				"telephone": "+381602442449",							            
+    			"brand":{
+        				"@type":"Thing",
+        				"name":"Tupperware"
+                        }
+   			}
+            </script>
+	<script type="application/ld+json">
+			{
+				"@context": "https://schema.org/",
+				"@type": "Brand",
+				"name": "Tupperware Srbija - T&T Yellow",
+				"url": "{{ shop.secure_url }}/",
+				"logo": "https://cdn.shopify.com/s/files/1/0563/1216/8656/t/3/assets/tupperware-logo.svg?v=4710287157764110618",
+				
+				"sameAs": [
+					"https://link-to-social-profile-like-fb"
+				]
+
+			}
+		</script>
+	<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Store",
+				"name": "Tupperware Srbija - T&T Yellow",
+				"description": "T&T YELLOW je Srpski zastupnik za Tupperware proizvode.",
+				"openingHours": "Pon-Pet 09:00-16:00",
+				"telephone": "+381602442449",
+				"address":
+				{
+				"@type": "PostalAddress",
+				"streetAddress": "Cara Dušana 73",
+				"addressLocality": "Zemun",				
+				"addressCountry": "Srbija"
+				} 
+			}
+			</script>
+	<title>{{ page_title }}</title>
+	<link rel="shortcut icon" href="{{ 'tupperware-touch-icon_32x32.png' | asset_url }}" type="image/png" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	{% if page_description %}
+	{% if template == 'list-collections' %}
+	<meta name="description"
+		content="Aktuelna Tupperware kolekcija. Najnoviji Tupperware katalog i prepoznatljiv kvalitet proizvoda. Poručite online" />
+	{% else %}
+	<meta name="description" content="{{ page_description | escape }}" />
+	{% endif %}
+
+	{% endif %}
+	{% if page.handle == 'katalog' %}
+	<meta property="og:image" content="{{ 'tupperware-maj-2022-10.jpg' | asset_url }}">
+	<meta property="og:image:secure_url" content="{{ 'tupperware-maj-2022-10.jpg' | asset_url }}">
+	{% endif %}
+	{% if collection.handle == 'akcijska-ponuda' %}
+	<meta property="og:image" content="{{ 'tupperware-maj-2022-10.jpg' | asset_url }}">
+	<meta property="og:image:secure_url" content="{{ 'tupperware-maj-2022-10.jpg' | asset_url }}">
+	{% endif %}
+	<link rel="canonical" href="{{ canonical_url }}" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+
+	<style>
+		*,
+		::after,
+		::before {
+			-webkit-box-sizing: inherit;
+			box-sizing: inherit
+		}
+
+		* {
+			font: inherit
+		}
+
+		a,
+		abbr,
+		acronym,
+		address,
+		applet,
+		article,
+		aside,
+		audio,
+		b,
+		big,
+		blockquote,
+		body,
+		canvas,
+		caption,
+		center,
+		cite,
+		code,
+		dd,
+		del,
+		details,
+		dfn,
+		div,
+		dl,
+		dt,
+		em,
+		embed,
+		fieldset,
+		figcaption,
+		figure,
+		footer,
+		form,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		header,
+		hgroup,
+		hr,
+		html,
+		i,
+		iframe,
+		img,
+		ins,
+		kbd,
+		label,
+		legend,
+		li,
+		mark,
+		menu,
+		nav,
+		object,
+		ol,
+		output,
+		p,
+		pre,
+		q,
+		ruby,
+		s,
+		samp,
+		section,
+		small,
+		span,
+		strike,
+		strong,
+		sub,
+		summary,
+		sup,
+		table,
+		tbody,
+		td,
+		tfoot,
+		th,
+		thead,
+		time,
+		tr,
+		tt,
+		u,
+		ul,
+		var,
+		video {
+			margin: 0;
+			padding: 0;
+			border: 0
+		}
+
+		html {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box
+		}
+
+		body {
+			background-color: var(--color-bg, #fff)
+		}
+
+		article,
+		aside,
+		details,
+		figcaption,
+		figure,
+		footer,
+		form legend,
+		header,
+		hgroup,
+		main,
+		menu,
+		nav,
+		section {
+			display: block
+		}
+
+		ol,
+		ul {
+			list-style: none
+		}
+
+		blockquote,
+		q {
+			quotes: none
+		}
+
+		button,
+		input,
+		select,
+		textarea {
+			margin: 0
+		}
+
+		.btn,
+		.form-control,
+		.link,
+		.reset {
+			background-color: transparent;
+			padding: 0;
+			border: 0;
+			border-radius: 0;
+			color: inherit;
+			line-height: inherit;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none
+		}
+
+		select.form-control::-ms-expand {
+			display: none
+		}
+
+		textarea {
+			resize: vertical;
+			overflow: auto;
+			vertical-align: top
+		}
+
+		input::-ms-clear {
+			display: none
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0
+		}
+
+		img,
+		svg,
+		video {
+			max-width: 100%
+		}
+	</style>
+
+	<script>
+		window.BOOMR = { version: 1 };
+	</script>
+
+	{{
+	content_for_header
+	}}
+
+	{{
+	"style.css" | asset_url | stylesheet_tag
+	}}
+
+	<!-- Header hook for plugins -->
+
+	<script>
+		document.getElementsByTagName("html")[0].className += " js";
+	</script>
+	<script>
+		if (!("CSS" in window) || !CSS.supports("color", "var(--color-var)")) {
+			var cfStyle = document.getElementById("codyframe");
+			if (cfStyle) {
+				var href = cfStyle.getAttribute("href");
+				href = href.replace("style.css", "style-fallback.css");
+				cfStyle.setAttribute("href", href);
+			}
+		}
+	</script>
+
+	{% comment %}
+	<script src="{{ 'shopify-money.js' | asset_url }}"></script>
+	{% endcomment %} {% comment %}
+	<script src="{{ 'axios.min.js' | asset_url }}"></script>
+	{% endcomment %}
+
+	<script>
+		var scaaffCheck = false;
+	</script>
+	{{
+	"sca_affiliate.js" | asset_url | script_tag
+	}}
+	{% if content_for_header contains 'hellorichsnippets.helloshopowner.com' %}{% render 'hso-product-page-rich-snippets'
+	%}{% endif %}
+
+</head>
+
+<body>
+	<!-- konvertovanje cifra -->
+	<script src="{{ 'shopify-money.js' | asset_url }}"></script>
+
+	<script src="https://unpkg.com/vue@3.1.4/dist/vue.global.prod.js"></script>
+	<script src="https://unpkg.com/vuex@4.0.0/dist/vuex.global.js"></script>
+
+	<!-- komunikacija sa serverom/shopify post get -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+		integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	<!-- vuex korpa -->
+	{% include 'store.js' %}
+
+	<div class="position-relative">
+		{% section 'header' %}
+
+		<main role="main">
+			{{ content_for_layout }}
+		</main>
+
+		{% section 'footer' %}
+	</div>
+
+	<script async src="{{ 'scripts.min.js' | asset_url }}"></script>
+</body>
+
+</html>

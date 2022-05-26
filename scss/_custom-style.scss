@@ -1,0 +1,166 @@
+// --------------------------------
+
+// Custom Style - your bespoke style
+
+// --------------------------------
+
+@import "custom-style/colors";
+@import "custom-style/spacing";
+@import "custom-style/shared-styles";
+@import "custom-style/typography";
+@import "custom-style/icons";
+@import "custom-style/buttons";
+@import "custom-style/forms";
+@import "custom-style/util";
+
+#scroll-one {
+	position: relative;
+	width: auto;
+
+	#scroll-trigger {
+		height: 50px;
+	}
+	.circle-loader {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		border: 5px solid #ffc94d;
+		border-top: 5px solid #fff;
+		animation: animate 1.5s infinite linear;
+	}
+}
+@keyframes animate {
+	0% {
+		transform: (translate(-50%, -50%) rotate(0deg));
+	}
+	100% {
+		transform: (translate(-50%, -50%) rotate(360deg));
+	}
+}
+
+.hamburger .line {
+	width: 40px;
+	height: 5px;
+	background-color: black;
+	display: block;
+	margin: 8px auto;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover {
+	cursor: pointer;
+}
+
+#hamburger-5.is-active {
+	-webkit-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+#hamburger-5.is-active .line:nth-child(2) {
+	-webkit-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+
+#hamburger-5 .line:nth-child(2) {
+	-webkit-transition-delay: 0.3s;
+	-o-transition-delay: 0.3s;
+	transition-delay: 0.3s;
+}
+
+#hamburger-5.is-active .line:nth-child(2) {
+	opacity: 0;
+}
+
+#hamburger-5.is-active .line:nth-child(1),
+#hamburger-5.is-active .line:nth-child(3) {
+	width: 35px;
+	-webkit-transform-origin: right;
+	-moz-transform-origin: right;
+	-ms-transform-origin: right;
+	-o-transform-origin: right;
+	transform-origin: right;
+}
+
+#hamburger-5.is-active .line:nth-child(1) {
+	-webkit-transform: translateY(15px) rotate(45deg);
+	-ms-transform: translateY(15px) rotate(45deg);
+	-o-transform: translateY(15px) rotate(45deg);
+	transform: translateY(15px) rotate(45deg);
+}
+
+#hamburger-5.is-active .line:nth-child(3) {
+	-webkit-transform: translateY(-15px) rotate(-45deg);
+	-ms-transform: translateY(-15px) rotate(-45deg);
+	-o-transform: translateY(-15px) rotate(-45deg);
+	transform: translateY(-15px) rotate(-45deg);
+}
+
+#mobile-products {
+	height: 74px;
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 780px) {
+	#mobile-products {
+		height: 110px !important;
+	}
+}
+@media only screen and (max-width: 768px) {
+	#mobile-products {
+		flex-direction: column !important;
+		align-items: flex-start !important;
+		height: 100px !important;
+
+		#text-left {
+			text-align: left !important;
+			font-size: var(--text-sm);
+			align-items: flex-start;
+		}
+	}
+}
+
+#test-23 {
+	.flowpaper_viewer {
+		background-color: white !important;
+	}
+}
+
+.btn-grey {
+	background: var(--color-contrast-lower);
+}
+
+// Akcijske cene crveno na pocetnoj
+#akcija-pocetna {
+  div:nth-child(3) {
+    color: var(--color-accent);
+  }
+}
+
+// Akcijske cene crveno na pocetnoj
+#text-left {
+  span:nth-child(3) {
+    color: var(--color-accent);
+  }
+}
+
+// Collection akcijske cene
+div #text-left {
+  span:nth-child(3) {
+    color: var(--color-accent);
+  }
+}
+
+// Product akcijske cene
+#akcija-product {
+  p:nth-child(2) {
+    color: var(--color-accent);
+  }
+}

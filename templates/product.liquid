@@ -1,0 +1,365 @@
+<section class="product-v2 js-product-v2 margin-top-xl@lg margin-top-sm">
+	<div class="container max-width-adaptive-lg padding-top-lg@md" id="product_form">
+		<div class="grid gap-md@md gap-sm">
+			<div class="col-6@md col-7@lg min-width-0">
+				{% comment %} Desktop {% endcomment %}
+				<div class="thumbslide thumbslide--vertical thumbslide--left js-thumbslide display@md">
+					<div class="slideshow js-product-v2__slideshow slideshow--transition-slide slideshow--ratio-1:1"
+						data-control="hover">
+						<p class="sr-only">Slideshow Items</p>
+
+						<ul class="slideshow__content">
+							{% for image in product.images %}
+
+							<li class="slideshow__item bg js-slideshow__item"
+								data-thumb="{{ image.src | product_img_url: 'master' }}">
+								<figure class="position-absolute height-100% width-100% top-0 left-0">
+									<div class="img-mag height-100%">
+										<img class="img-mag__asset height-100% object-cover"
+											src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+									</div>
+								</figure>
+							</li>
+
+							{% endfor %}
+						</ul>
+					</div>
+
+					<div class="thumbslide__nav-wrapper hide" aria-hidden="true">
+						<ol class="thumbslide__nav">
+							<li class="thumbslide__nav-list"></li>
+						</ol>
+					</div>
+				</div>
+
+				{% comment %} Mobile {% endcomment %}
+				<div class="flex flex-column margin-bottom-xxs hide@md">
+					{% for image in product.images limit:1 %}
+					<img data-src="{{ image.src | product_img_url: '500x' }}" src="{{ image.src | product_img_url: '500x' }}"
+						alt="{{ image.alt | escape }}" width="366px" height="366px" style="height: 366px; width: 366px;" />
+					{% endfor %}
+				</div>
+
+				<!-- <div class="thumbslide js-thumbslide hide@md">
+					<div class="slideshow js-product-v2__slideshow slideshow--transition-slide slideshow--ratio-1:1"
+						data-control="hover">
+						<p class="sr-only">Slideshow Items</p>
+
+						<ul class="slideshow__content">
+							{% for image in product.images limit:1 %}
+
+							<li class="slideshow__item bg js-slideshow__item" data-thumb="{{ image.src | product_img_url: 'master' }}"
+								width="366px" height="366px">
+								<figure class="position-absolute height-100% width-100% top-0 left-0">
+									<div class="img-mag height-100%">
+										<img class="img-mag__asset height-100% object-cover"
+											src="{{ image.src | product_img_url: 'master' }}" alt="Image description" />
+									</div>
+								</figure>
+							</li>
+
+							{% endfor %}
+						</ul>
+					</div>
+
+					<div class="thumbslide__nav-wrapper hide" aria-hidden="true">
+						<ol class="thumbslide__nav">
+							<li class="thumbslide__nav-list"></li>
+						</ol>
+					</div>
+				</div> -->
+			</div>
+
+			<div class="col-6@md col-5@lg">
+				<div class="margin-bottom-xs">
+					<div class="flex justify-between">
+						<div>
+							<!-- Ime proizvoda -->
+							<h1 class="text-lg@md text-md font-light color-contrast-medium">
+								{{ product.title }}
+							</h1>
+						</div>
+					</div>
+				</div>
+				<div class="margin-bottom-lg@md margin-bottom-md">
+					{% assign seo_content = product.description | split: "---" %}
+
+					<!-- Naslov glavni -->
+					<div class="margin-bottom-sm">
+						<h2 class="text-xxl@lg font-bold">
+							{{ seo_content[0] }}
+						</h2>
+					</div>
+				</div>
+
+				<!-- Cena -->
+				<div class="margin-y-lg@md margin-y-md" id="akcija-product">
+					{% if product.compare_at_price_min > product.price %}
+					<p class="prod-card-v2__old-price text-lg ">{{ product.compare_at_price_min | money }}</p>
+
+					{% else %}
+
+					{% endif %}
+
+					<p class="text-xl color-primary-darker">{{ product.price | money }}</p>
+				</div>
+
+				<!-- Dugme -->
+				<div class="" id="shopify-form">
+					{% form 'product', product, data-product-form: '', data-product-handle: product.handle,
+					data-enable-history-state: 'true' %} {% if product.options.size > 1 %} ... <input type="radio"
+						v-model="form.id" id="variant_id" value="{{
+						variant.id
+					}}" name="id" {% if variant.id==product.selected_or_first_available_variant.id %} checked{% endif %}>
+					<label>{{ variant.title }} for {{ product.price | minus: variant.price | money_with_currency }}</label>
+
+					... {% else %}
+					<input type="hidden" name="id" :value="id" />
+					{% endif %}
+					{% unless product.available %}
+					<div class="flex flex-column flex-row@sm gap-xxs js-product-v3__cta padding-top-0@md">
+						<a class="btn btn--primary flex width-100%" disabled>
+							<!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								class="margin-right-xxs">
+								<title>Raprodato</title>
+								<g>
+									<path fill="#ffffff"
+										d="M8.5 19a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 8.5 19zM19 16H7a1 1 0 0 1 0-2h8.491a3.013 3.013 0 0 0 2.885-2.176l1.585-5.55A1 1 0 0 0 19 5H6.74A3.007 3.007 0 0 0 3.92 3H3a1 1 0 0 0 0 2h.921a1.005 1.005 0 0 1 .962.725l.155.545v.005l1.641 5.742A3 3 0 0 0 7 18h12a1 1 0 0 0 0-2zm-1.326-9l-1.22 4.274a1.005 1.005 0 0 1-.963.726H8.754l-.255-.892L7.326 7zM16.5 19a1.5 1.5 0 1 0 1.5 1.5 1.5 1.5 0 0 0-1.5-1.5z">
+									</path>
+								</g>
+							</svg> -->
+							Rasprodato
+						</a>
+					</div>
+
+
+					{% else %}
+					<div class="flex flex-column flex-row@sm gap-xxs js-product-v3__cta padding-top-0@md">
+						<a class="btn btn--primary flex width-100%" aria-controls="cart-drawer" @click="addToCart" id="kec"
+							name="add">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								class="margin-right-xxs">
+								<title>Dodaj u korpu</title>
+								<g>
+									<path fill="#ffffff"
+										d="M8.5 19a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 8.5 19zM19 16H7a1 1 0 0 1 0-2h8.491a3.013 3.013 0 0 0 2.885-2.176l1.585-5.55A1 1 0 0 0 19 5H6.74A3.007 3.007 0 0 0 3.92 3H3a1 1 0 0 0 0 2h.921a1.005 1.005 0 0 1 .962.725l.155.545v.005l1.641 5.742A3 3 0 0 0 7 18h12a1 1 0 0 0 0-2zm-1.326-9l-1.22 4.274a1.005 1.005 0 0 1-.963.726H8.754l-.255-.892L7.326 7zM16.5 19a1.5 1.5 0 1 0 1.5 1.5 1.5 1.5 0 0 0-1.5-1.5z">
+									</path>
+								</g>
+							</svg>
+							Dodaj u korpu
+						</a>
+					</div>
+					{% endunless %}
+
+					{% endform %}
+				</div>
+
+				<!-- PDV -->
+				<div class="margin-bottom-lg margin-top-xs text-center padding-x-0 padding-x-lg@md">
+					<p class="color-contrast-medium text-sm text-sm@md">MPC sa PDV-om plus troškovi dostave:</p>
+					<p class="color-contrast-medium text-sm text-sm@md">
+						Za porudžbine iznad 8.000rsd poštarina je besplatna. Za porudžbine do 8.000rsd poštarina je 390,00rsd.
+					</p>
+				</div>
+
+				<!-- Accordion -->
+				<ul class="accordion-v2 flex flex-column gap-xxxs js-accordion" data-animation="on" data-multi-items="on"
+					data-version="v2">
+
+
+					<!-- Opis proizvoda -->
+					<li class="accordion-v2__item bg shadow-sm radius-md js-accordion__item">
+						<button class="reset accordion-v2__header padding-y-sm padding-x-md js-tab-focus" type="button">
+							<h3><span class="text-sm">Opis proizvoda</span></h3>
+
+							<svg class="icon accordion-v2__icon-arrow no-js:is-hidden" viewBox="0 0 16 16" aria-hidden="true">
+								<g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10">
+									<path d="M2 2l12 12" />
+									<path d="M14 2L2 14" />
+								</g>
+							</svg>
+						</button>
+
+						<div class="accordion-v2__panel js-accordion__panel">
+							<div class="text-component padding-top-xxxs padding-x-md padding-bottom-md">
+								{{ seo_content[3] }}
+								<p class="text-bold margin-right-xxs">Dimenzije:</p>
+								<p>{{ seo_content[1] }}</p>
+								<p class="text-bold margin-right-xxs">Kapacitet:</p>
+								<p>{{ seo_content[2] }}</p>
+							</div>
+						</div>
+					</li>
+
+					<!-- Kako se koristi -->
+					<li class="accordion-v2__item bg shadow-sm radius-md js-accordion__item">
+						<button class="reset accordion-v2__header padding-y-sm padding-x-md js-tab-focus" type="button">
+							<h3><span class="text-sm">Kako se koristi</span></h3>
+
+							<svg class="icon accordion-v2__icon-arrow no-js:is-hidden" viewBox="0 0 16 16" aria-hidden="true">
+								<g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10">
+									<path d="M2 2l12 12" />
+									<path d="M14 2L2 14" />
+								</g>
+							</svg>
+						</button>
+
+						<div class="accordion-v2__panel js-accordion__panel">
+							<div class="text-component padding-top-xxxs padding-x-md padding-bottom-md">
+								{{ seo_content[4] }}
+							</div>
+						</div>
+					</li>
+
+					<!-- Kako se cisti -->
+					<li class="accordion-v2__item bg shadow-sm radius-md js-accordion__item">
+						<button class="reset accordion-v2__header padding-y-sm padding-x-md js-tab-focus" type="button">
+							<h3><span class="text-sm">Kako se čisti</span></h3>
+
+							<svg class="icon accordion-v2__icon-arrow no-js:is-hidden" viewBox="0 0 16 16" aria-hidden="true">
+								<g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10">
+									<path d="M2 2l12 12" />
+									<path d="M14 2L2 14" />
+								</g>
+							</svg>
+						</button>
+
+						<div class="accordion-v2__panel js-accordion__panel">
+							<div class="text-component padding-top-xxxs padding-x-md padding-bottom-md">
+								{{ seo_content[5] }}
+							</div>
+						</div>
+					</li>
+
+					<!-- Za sta se preporucuje -->
+					<li class="accordion-v2__item bg shadow-sm radius-md js-accordion__item">
+						<button class="reset accordion-v2__header padding-y-sm padding-x-md js-tab-focus" type="button">
+							<h3><span class="text-sm">Za šta se preporučuje</span></h3>
+
+							<svg class="icon accordion-v2__icon-arrow no-js:is-hidden" viewBox="0 0 16 16" aria-hidden="true">
+								<g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10">
+									<path d="M2 2l12 12" />
+									<path d="M14 2L2 14" />
+								</g>
+							</svg>
+						</button>
+
+						<div class="accordion-v2__panel js-accordion__panel">
+							<div class="text-component padding-top-xxxs padding-x-md padding-bottom-md">
+								{{ seo_content[6] }}
+							</div>
+						</div>
+					</li>
+
+					<!-- Materijal -->
+					<li class="accordion-v2__item bg shadow-sm radius-md js-accordion__item">
+						<button class="reset accordion-v2__header padding-y-sm padding-x-md js-tab-focus" type="button">
+							<h3><span class="text-sm">Materijal</span></h3>
+
+							<svg class="icon accordion-v2__icon-arrow no-js:is-hidden" viewBox="0 0 16 16" aria-hidden="true">
+								<g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10">
+									<path d="M2 2l12 12" />
+									<path d="M14 2L2 14" />
+								</g>
+							</svg>
+						</button>
+
+						<div class="accordion-v2__panel js-accordion__panel">
+							<div class="text-component padding-top-xxxs padding-x-md padding-bottom-md">
+								{{ seo_content[7] }}
+							</div>
+						</div>
+					</li>
+
+					<!-- Garancija -->
+					<li class="accordion-v2__item bg shadow-sm radius-md js-accordion__item">
+						<button class="reset accordion-v2__header padding-y-sm padding-x-md js-tab-focus" type="button">
+							<h3><span class="text-sm">Garancija</span></h3>
+
+							<svg class="icon accordion-v2__icon-arrow no-js:is-hidden" viewBox="0 0 16 16" aria-hidden="true">
+								<g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10">
+									<path d="M2 2l12 12" />
+									<path d="M14 2L2 14" />
+								</g>
+							</svg>
+						</button>
+
+						<div class="accordion-v2__panel js-accordion__panel">
+							<div class="text-component padding-top-xxxs padding-x-md padding-bottom-md">
+								<p>Na fabričko izlivanje</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Mobile Accordion -->
+{% include 'ponuda' %}
+{% section 'kartice' %}
+
+<script>
+	const productFormOptions = {
+		name: "test",
+		delimiters: ["${", "}"],
+		store,
+
+		// vracane objekta sa vrijednostima
+		data() {
+			return {
+				form: {
+					id: "{{ product.selected_or_first_available_variant.id }}",
+					quantity: 1,
+				},
+			};
+		},
+
+		//poziva se sinhrono nakon kreiranja instance vrijednosti u korpi
+		created() {
+			store.dispatch("get_cart").then(() => (this.loading = false));
+		},
+
+		// globalno kroz sve stranice vrijednosti u korpi
+		computed: {
+			cart() {
+				return store.state.cart;
+			},
+		},
+
+		methods: {
+			// funkcija kolcina +
+			incrementValue() {
+				this.form.quantity++;
+			},
+			// funkcija kolicina -
+			decrementValue() {
+				if (this.form.quantity > 1) {
+					this.form.quantity--;
+				}
+			},
+			// funkcija za dodavanje u korpu
+			addToCart() {
+				$.post("/cart/add.js", this.form)
+					.then((response) => JSON.parse(response))
+					.then((items) => {
+						store.dispatch("get_cart");
+						this.closeMiniCart();
+					});
+			},
+			// manipulacija sa cart drawerom otvaranje na dodavanje i na klik zatvaranje
+			closeMiniCart() {
+				$("#cart-drawer-1").addClass("drawer--is-visible");
+				// $('.mini-cart .dropdown-menu').addClass('show');
+				$("#close-test").click(function () {
+					$("#cart-drawer-1").removeClass("drawer--is-visible");
+				});
+			},
+		},
+	};
+
+	// naziv sekcije koja ide prkeo Vue mora biti jedinstvena
+	const productFormPage = Vue.createApp(productFormOptions);
+	productFormPage.mount("#product_form");
+	productFormPage.use(store);
+</script>

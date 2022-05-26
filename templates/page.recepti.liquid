@@ -1,0 +1,367 @@
+<section class="intro display@md" style="background-image: url('{{ 'tntrecepti.jpg' | asset_url }}'); height: 100%;">
+	<div class="container grid max-width-adaptive-xl padding-y-xxl">
+		<div class="max-width-xs col-12@md offset-9@md">
+			<div class="text-component margin-bottom-xxl">
+				<h1>Naši recepti</h1>
+				<!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim suscipit consectetur odio consequuntur unde
+					error eos eaque obcaecati vitae.</p> -->
+			</div>
+		</div>
+	</div>
+</section>
+
+{% comment %} Recepti {% endcomment %}
+<section class="position-relative padding-y-xl">
+	<div class="container max-width-adaptive-sm margin-bottom-xl">
+		<div class="text-center">
+			<div class="text-component">
+				<h2>Recepti</h2>
+			</div>
+		</div>
+	</div>
+	<div class="container max-width-adaptive-lg margin-bottom-lg">
+		<div class="grid gap-sm">
+			<div class="card-v3 col-6@sm col-3@md" style="height: 300px">
+				<a href="/pages/pesto-sos" class="card-v3__link" aria-label="Description of the link">
+					<figure class="card-v3__img">
+						<img src="{{ 'pesto-pocenta.jpg' | asset_url }}" alt="Card preview img" />
+					</figure>
+
+					<div class="card-v3__content">
+						<div class="card-v3__label">Recept</div>
+						<p class="text-md font-medium">Pesto</p>
+					</div>
+
+					<div class="card-v3__footer">
+						<span>Pogledaj recept</span>
+						<svg class="icon" viewBox="0 0 16 16">
+							<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+								<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+								<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+							</g>
+						</svg>
+					</div>
+				</a>
+			</div>
+			<div class="card-v3 col-6@sm col-3@md" style="height: 300px">
+				<a href="/pages/pogaca" class="card-v3__link" aria-label="Description of the link">
+					<figure class="card-v3__img">
+						<img src="{{ 'recept-single.jpg' | asset_url }}" alt="Card preview img" />
+					</figure>
+
+					<div class="card-v3__content">
+						<div class="card-v3__label">Recept</div>
+						<p class="text-md font-medium">Pogača</p>
+					</div>
+
+					<div class="card-v3__footer">
+						<span>Pogledaj recept</span>
+						<svg class="icon" viewBox="0 0 16 16">
+							<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+								<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+								<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+							</g>
+						</svg>
+					</div>
+				</a>
+			</div>
+			<div class="card-v3 col-6@sm col-3@md" style="height: 300px">
+				<a href="/pages/palacinke" class="card-v3__link" aria-label="Description of the link">
+					<figure class="card-v3__img">
+						<img src="{{ 'palacinke-naslov.jpg' | asset_url }}" alt="Card preview img" />
+					</figure>
+
+					<div class="card-v3__content">
+						<div class="card-v3__label">Recept</div>
+						<p class="text-md font-medium">Palačinke</p>
+					</div>
+
+					<div class="card-v3__footer">
+						<span>Pogledaj recept</span>
+						<svg class="icon" viewBox="0 0 16 16">
+							<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+								<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+								<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+							</g>
+						</svg>
+					</div>
+				</a>
+			</div>
+			<div class="card-v3 col-6@sm col-3@md" style="height: 300px">
+				<a href="/pages/namaz-od-karfiola" class="card-v3__link" aria-label="Description of the link">
+					<figure class="card-v3__img">
+						<img src="{{ 'pire.jpg' | asset_url }}" alt="Card preview img" />
+					</figure>
+
+					<div class="card-v3__content">
+						<div class="card-v3__label">Recept</div>
+						<p class="text-md font-medium">Namaz od karfiola</p>
+					</div>
+
+					<div class="card-v3__footer">
+						<span>Pogledaj recept</span>
+						<svg class="icon" viewBox="0 0 16 16">
+							<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+								<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+								<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+							</g>
+						</svg>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- <section class="position-relative margin-bottom-xxl">
+	<div class="container max-width-adaptive-lg">
+		<div class="text-center margin-bottom-md">
+			<div class="text-component">
+				<h2>Recepti</h2>
+			</div>
+		</div>
+
+		<div class="grid gap-md">
+			<div class="col-12 col-6@md col-4@lg">
+				<div class="user-cell">
+					<div class="user-cell__body">
+						<figure aria-hidden="true">
+							<img class="user-cell__img" src="{{ 'popularni-recepti-01.jpg' | asset_url }}" alt="User profile image">
+						</figure>
+
+						<div class="user-cell__content text-component line-height-sm v-space-xxs">
+							<p><a href="#0" class="color-contrast-high"><strong>User Name</strong></a></p>
+							<p class="color-contrast-medium">Lorem ipsum dolor sit</p>
+						</div>
+					</div>
+
+					<div class="user-cell__cta">
+						<button class='btn btn--subtle'>
+							<svg class="icon" viewBox="0 0 16 16">
+								<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									stroke-miterlimit="10">
+									<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+									<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+								</g>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-6@md col-4@lg">
+				<div class="user-cell">
+					<div class="user-cell__body">
+						<figure aria-hidden="true">
+							<img class="user-cell__img" src="{{ 'popularni-recepti-01.jpg' | asset_url }}" alt="User profile image">
+						</figure>
+
+						<div class="user-cell__content text-component line-height-sm v-space-xxs">
+							<p><a href="#0" class="color-contrast-high"><strong>User Name</strong></a></p>
+							<p class="color-contrast-medium">Lorem ipsum dolor sit</p>
+						</div>
+					</div>
+
+					<div class="user-cell__cta">
+						<button class='btn btn--subtle'>
+							<svg class="icon" viewBox="0 0 16 16">
+								<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									stroke-miterlimit="10">
+									<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+									<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+								</g>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-6@md col-4@lg">
+				<div class="user-cell">
+					<div class="user-cell__body">
+						<figure aria-hidden="true">
+							<img class="user-cell__img" src="{{ 'popularni-recepti-01.jpg' | asset_url }}" alt="User profile image">
+						</figure>
+
+						<div class="user-cell__content text-component line-height-sm v-space-xxs">
+							<p><a href="#0" class="color-contrast-high"><strong>User Name</strong></a></p>
+							<p class="color-contrast-medium">Lorem ipsum dolor sit</p>
+						</div>
+					</div>
+
+					<div class="user-cell__cta">
+						<button class='btn btn--subtle'>
+							<svg class="icon" viewBox="0 0 16 16">
+								<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									stroke-miterlimit="10">
+									<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+									<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+								</g>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-6@md col-4@lg">
+				<div class="user-cell">
+					<div class="user-cell__body">
+						<figure aria-hidden="true">
+							<img class="user-cell__img" src="{{ 'popularni-recepti-01.jpg' | asset_url }}" alt="User profile image">
+						</figure>
+
+						<div class="user-cell__content text-component line-height-sm v-space-xxs">
+							<p><a href="#0" class="color-contrast-high"><strong>User Name</strong></a></p>
+							<p class="color-contrast-medium">Lorem ipsum dolor sit</p>
+						</div>
+					</div>
+
+					<div class="user-cell__cta">
+						<button class='btn btn--subtle'>
+							<svg class="icon" viewBox="0 0 16 16">
+								<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									stroke-miterlimit="10">
+									<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+									<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+								</g>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-6@md col-4@lg">
+				<div class="user-cell">
+					<div class="user-cell__body">
+						<figure aria-hidden="true">
+							<img class="user-cell__img" src="{{ 'popularni-recepti-01.jpg' | asset_url }}" alt="User profile image">
+						</figure>
+
+						<div class="user-cell__content text-component line-height-sm v-space-xxs">
+							<p><a href="#0" class="color-contrast-high"><strong>User Name</strong></a></p>
+							<p class="color-contrast-medium">Lorem ipsum dolor sit</p>
+						</div>
+					</div>
+
+					<div class="user-cell__cta">
+						<button class='btn btn--subtle'>
+							<svg class="icon" viewBox="0 0 16 16">
+								<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									stroke-miterlimit="10">
+									<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+									<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+								</g>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-6@md col-4@lg">
+				<div class="user-cell">
+					<div class="user-cell__body">
+						<figure aria-hidden="true">
+							<img class="user-cell__img" src="{{ 'popularni-recepti-01.jpg' | asset_url }}" alt="User profile image">
+						</figure>
+
+						<div class="user-cell__content text-component line-height-sm v-space-xxs">
+							<p><a href="#0" class="color-contrast-high"><strong>User Name</strong></a></p>
+							<p class="color-contrast-medium">Lorem ipsum dolor sit</p>
+						</div>
+					</div>
+
+					<div class="user-cell__cta">
+						<button class='btn btn--subtle'>
+							<svg class="icon" viewBox="0 0 16 16">
+								<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									stroke-miterlimit="10">
+									<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+									<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+								</g>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-6@md col-4@lg">
+				<div class="user-cell">
+					<div class="user-cell__body">
+						<figure aria-hidden="true">
+							<img class="user-cell__img" src="{{ 'popularni-recepti-01.jpg' | asset_url }}" alt="User profile image">
+						</figure>
+
+						<div class="user-cell__content text-component line-height-sm v-space-xxs">
+							<p><a href="#0" class="color-contrast-high"><strong>User Name</strong></a></p>
+							<p class="color-contrast-medium">Lorem ipsum dolor sit</p>
+						</div>
+					</div>
+
+					<div class="user-cell__cta">
+						<button class='btn btn--subtle'>
+							<svg class="icon" viewBox="0 0 16 16">
+								<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									stroke-miterlimit="10">
+									<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+									<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+								</g>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-6@md col-4@lg">
+				<div class="user-cell">
+					<div class="user-cell__body">
+						<figure aria-hidden="true">
+							<img class="user-cell__img" src="{{ 'popularni-recepti-01.jpg' | asset_url }}" alt="User profile image">
+						</figure>
+
+						<div class="user-cell__content text-component line-height-sm v-space-xxs">
+							<p><a href="#0" class="color-contrast-high"><strong>User Name</strong></a></p>
+							<p class="color-contrast-medium">Lorem ipsum dolor sit</p>
+						</div>
+					</div>
+
+					<div class="user-cell__cta">
+						<button class='btn btn--subtle'>
+							<svg class="icon" viewBox="0 0 16 16">
+								<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									stroke-miterlimit="10">
+									<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+									<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+								</g>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-6@md col-4@lg">
+				<div class="user-cell">
+					<div class="user-cell__body">
+						<figure aria-hidden="true">
+							<img class="user-cell__img" src="{{ 'popularni-recepti-01.jpg' | asset_url }}" alt="User profile image">
+						</figure>
+
+						<div class="user-cell__content text-component line-height-sm v-space-xxs">
+							<p><a href="#0" class="color-contrast-high"><strong>User Name</strong></a></p>
+							<p class="color-contrast-medium">Lorem ipsum dolor sit</p>
+						</div>
+					</div>
+
+					<div class="user-cell__cta">
+						<button class='btn btn--subtle'>
+							<svg class="icon" viewBox="0 0 16 16">
+								<g fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									stroke-miterlimit="10">
+									<line x1="0.5" y1="8.5" x2="15.5" y2="8.5"></line>
+									<polyline points="10.5,3.5 15.5,8.5 10.5,13.5 "></polyline>
+								</g>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+<!-- {% section 'bilten' %} -->
+{% section 'kartice' %}

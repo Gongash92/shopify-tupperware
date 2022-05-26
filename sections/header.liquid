@@ -1,0 +1,333 @@
+{% comment %}<a href="#0" class="pre-header padding-y-xs js-pre-header">{% endcomment %} {% comment %}
+	<div class="container">
+		{% endcomment %} {% comment %}
+		<div class="text-component text-center text-sm">
+			{% endcomment %} {% comment %}
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo vero necessitatibus dolores quidem
+				fugiat!{% endcomment %} {% comment %}</p>
+			{% endcomment %} {% comment %}
+		</div>
+		{% endcomment %} {% comment %}
+	</div>
+	{% endcomment %} {% comment %}
+</a>{% endcomment %}
+
+<div id="mini-cart">
+	<header
+		class="mega-nav bg-white mega-nav--mobile mega-nav--desktop@md position-relative js-mega-nav flex position-sticky">
+		<div class="mega-nav__container">
+			<!-- 👇 logo -->
+			<a href="/" class="mega-nav__logo">
+				<img src="{{ 'tupperware-logo.svg' | asset_url }}" width="207" height="32" alt="" srcset="" />
+			</a>
+
+			<!-- 👇 icon buttons --mobile -->
+			<div class="mega-nav__icon-btns mega-nav__icon-btns--mobile">
+				<button class="reset mega-nav__icon-btn mega-nav__icon-btn--menu js-tab-focus" aria-label="Toggle menu"
+					aria-controls="mega-nav-navigation">
+					<svg class="icon" viewBox="0 0 24 24">
+						<g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10"
+							stroke-width="2">
+							<path d="M1 6h22" />
+							<path d="M1 12h22" />
+							<path d="M1 18h22" />
+						</g>
+					</svg>
+				</button>
+			</div>
+
+			<div class="mega-nav__nav js-mega-nav__nav" id="mega-nav-navigation" role="navigation" aria-label="Main">
+				<div class="mega-nav__nav-inner">
+					<ul class="mega-nav__items">
+						<li class="mega-nav__label">Menu</li>
+
+						<!-- 👇 layout 1 -> tabbed content -->
+
+						<!-- 👇 layout 2 -> multiple lists -->
+						<li class="mega-nav__item js-mega-nav__item">
+							<button class="reset mega-nav__control js-mega-nav__control js-tab-focus">
+								Svi proizvodi
+								<i class="mega-nav__arrow-icon" aria-hidden="true">
+									<svg class="icon" viewBox="0 0 16 16">
+										<g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square"
+											stroke-miterlimit="10" stroke-width="2">
+											<path d="M2 2l12 12" />
+											<path d="M14 2L2 14" />
+										</g>
+									</svg>
+								</i>
+							</button>
+							<div class="mega-nav__sub-nav-wrapper">
+								<div class="mega-nav__sub-nav mega-nav__sub-nav--layout-2">
+									<div class="mega-nav__card width-100% max-width-xs margin-x-auto">
+										<a href="/collections/" class="block radius-lg overflow-hidden display@md">
+											<figure class="aspect-ratio-4:3">
+												<img class="block width-100%" loading="lazy"
+													data-src="{{ 'svi-proizvodi-meni.jpg' | asset_url }}"
+													src="{{ 'svi-proizvodi-meni.jpg' | asset_url }}" alt="Image description" />
+											</figure>
+										</a>
+
+										<div class="margin-top-sm">
+											<p class="text-base font-bold">
+												<a href="/collections/" class="mega-nav__card-title text-md">Vidi sve proizvode →</a>
+											</p>
+										</div>
+									</div>
+									<ul class="mega-nav__sub-items margin-left-lg@md margin-left-0">
+										<li class="mega-nav__label">Kategorije proizvoda</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/kuhinja" class="mega-nav__sub-link">Kuhinja</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/svakodnevna-kolekcija" class="mega-nav__sub-link">Svakodnevna kolekcija</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/rerna" class="mega-nav__sub-link">Rerna</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/frizider" class="mega-nav__sub-link">Frižider</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/zamrzivac" class="mega-nav__sub-link">Zamrzivač</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/ostava" class="mega-nav__sub-link">Ostava</a>
+										</li>
+									</ul>
+
+									<ul class="mega-nav__sub-items">
+										<li class="mega-nav__label">Podkatergorija proizvoda</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/eco-kolekcija" class="mega-nav__sub-link">Eco kolekcija</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/eko-flasa" class="mega-nav__sub-link">Eko flaša</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/na-putovanju" class="mega-nav__sub-link">Na putovanju</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/decija-kolekcija" class="mega-nav__sub-link">Dečija kolekcija</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/stona-kolekcija" class="mega-nav__sub-link">Stona kolekcija</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/kuhinjski-pomagaci" class="mega-nav__sub-link">Kuhinjski pomagači</a>
+										</li>
+									</ul>
+
+									<ul class="mega-nav__sub-items">
+										<li class="mega-nav__label" style="opacity: 0">.</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/krpe-od-mikrofibera" class="mega-nav__sub-link">Krpe od mikrofibera</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/laki-i-brzi-pomagaci" class="mega-nav__sub-link">Laki i brzi pomagači</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/pomagaci-u-pripremi" class="mega-nav__sub-link">Pomagači u pripremi</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/ergonomski-nozevi" class="mega-nav__sub-link">Ergonomski noževi</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/mikrotalasna-kolekcija" class="mega-nav__sub-link">Mikrotalasna
+												kolekcija</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/tupperware-pekac" class="mega-nav__sub-link">Tupperware pekač</a>
+										</li>
+									</ul>
+
+									<ul class="mega-nav__sub-items">
+										<li class="mega-nav__label" style="opacity: 0">.</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/silikonski-kalupi" class="mega-nav__sub-link">Silikonski kalupi</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/kolekcija-za-visenamensku-upotrebu" class="mega-nav__sub-link">Kolekcija za
+												višenamensku upotrebu</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/kolekcija-za-voce-i-povrce" class="mega-nav__sub-link">Kolekcija za voće i
+												povrće</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/pametna-resenja" class="mega-nav__sub-link">Pametna rešenja</a>
+										</li>
+										<li class="mega-nav__sub-item">
+											<a href="/collections/spajz" class="mega-nav__sub-link">Špajz</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="mega-nav__item">
+							<a href="/collections/akcijska-ponuda" class="mega-nav__control">
+								<svg class="icon margin-right-xxxs margin-right-xxs@md margin-top-xxxxs" style="color: #DF3099;"
+									width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0_137:7825)">
+										<path
+											d="M18.6693 9.74103C18.5888 9.90564 18.5888 10.0945 18.6693 10.2591L19.4152 11.7851C19.8305 12.6347 19.5015 13.6475 18.6661 14.0907L17.1657 14.8868C17.0039 14.9727 16.8929 15.1255 16.8612 15.3059L16.5677 16.9788C16.4043 17.9103 15.5431 18.5363 14.6065 18.4038L12.9248 18.1659C12.7433 18.1404 12.5638 18.1986 12.4321 18.326L11.2113 19.507C10.8715 19.8357 10.4352 20.0001 9.99918 20.0001C9.56301 20.0002 9.127 19.8358 8.78708 19.507L7.56635 18.326C7.43463 18.1986 7.25502 18.1402 7.07365 18.1659L5.3919 18.4038C5.30796 18.4157 5.22444 18.4214 5.14214 18.4214C4.30648 18.4215 3.57938 17.8268 3.43063 16.9789L3.13719 15.3059C3.10551 15.1255 2.99454 14.9726 2.83266 14.8868L1.33228 14.0907C0.496894 13.6475 0.167834 12.6348 0.583144 11.7851L1.32908 10.2592C1.40955 10.0946 1.40955 9.90576 1.32908 9.74111L0.583183 8.21518C0.167873 7.36554 0.496933 6.35277 1.33232 5.90957L2.8327 5.11348C2.99454 5.02758 3.10551 4.87481 3.13719 4.69434L3.43063 3.02142C3.59402 2.08994 4.45535 1.46393 5.39187 1.59647L7.07361 1.83436C7.2551 1.85991 7.43459 1.80166 7.56631 1.67424L8.78708 0.493195C9.46676 -0.164418 10.5316 -0.164379 11.2113 0.493195L12.4321 1.67413C12.5637 1.80151 12.7432 1.85987 12.9248 1.83424L14.6065 1.59635C15.5427 1.46389 16.4043 2.08983 16.5677 3.02131L16.8612 4.6943C16.8929 4.87473 17.0038 5.02754 17.1657 5.1134L18.6661 5.90949C19.5015 6.35273 19.8305 7.36542 19.4152 8.21506L18.6693 9.74103Z"
+											fill="currentColor">
+										</path>
+										<path
+											d="M14.2136 5.78562C13.9884 5.56039 13.6232 5.56039 13.398 5.78562L5.78514 13.3985C5.5599 13.6237 5.5599 13.9889 5.78514 14.2141C5.89775 14.3267 6.04537 14.3831 6.19295 14.3831C6.34052 14.3831 6.48818 14.3268 6.60076 14.2141L14.2136 6.60132C14.4389 6.37605 14.4389 6.0109 14.2136 5.78562Z"
+											fill="white">
+										</path>
+										<path
+											d="M7.69243 4.80908C6.52634 4.80908 5.57764 5.75779 5.57764 6.92387C5.57764 8.08996 6.52634 9.03867 7.69243 9.03867C8.85852 9.03867 9.80722 8.08996 9.80722 6.92387C9.80722 5.75779 8.85852 4.80908 7.69243 4.80908ZM7.69243 7.88512C7.16239 7.88512 6.73118 7.45391 6.73118 6.92384C6.73118 6.3938 7.16239 5.96259 7.69243 5.96259C8.22247 5.96259 8.65371 6.3938 8.65371 6.92384C8.65367 7.45391 8.22247 7.88512 7.69243 7.88512Z"
+											fill="white">
+										</path>
+										<path
+											d="M12.3067 10.9614C11.1406 10.9614 10.1919 11.9101 10.1919 13.0762C10.1919 14.2423 11.1406 15.191 12.3067 15.191C13.4728 15.191 14.4215 14.2423 14.4215 13.0762C14.4215 11.9101 13.4728 10.9614 12.3067 10.9614ZM12.3067 14.0375C11.7767 14.0375 11.3454 13.6063 11.3454 13.0762C11.3454 12.5462 11.7766 12.115 12.3067 12.115C12.8367 12.115 13.2679 12.5462 13.2679 13.0762C13.2679 13.6063 12.8367 14.0375 12.3067 14.0375Z"
+											fill="white">
+										</path>
+									</g>
+									<defs>
+										<clipPath id="clip0_137:7825">
+											<rect width="20" height="20" fill="white" transform="translate(-0.000488281)">
+											</rect>
+										</clipPath>
+									</defs>
+								</svg>
+								<span class="margin-left-xxs margin-left-0@md color-quinary">Akcijska ponuda</span>
+							</a>
+						</li>
+
+						<li class="mega-nav__item">
+							<a href="/pages/katalog" class="mega-nav__control">Katalog</a>
+						</li>
+
+						<li class="mega-nav__item">
+							<a href="/pages/tupperware-srbija" class="mega-nav__control">Karijera</a>
+						</li>
+
+
+						<li class="mega-nav__item">
+							<a href="" class="mega-nav__control" aria-controls="cart-drawer-1" id="kec">
+								<span id="cartCount">Korpa</span>
+								<span class="counter margin-left-xxs margin-top-xxxxs" v-html="cart.item_count"> <i
+										class="sr-only">items in
+										cart</i></span>
+							</a>
+						</li>
+
+						<!-- 👇 link -->
+						<!-- <li class="mega-nav__item">
+			  <a href="#0" class="mega-nav__control">Link</a>
+			</li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- drawer cart -->
+	<div class="drawer dr-cart js-drawer" id="cart-drawer-1">
+		<div class="drawer__content bg shadow-md flex flex-column" role="alertdialog" aria-labelledby="cart-drawer-1">
+			<header
+				class="flex items-center justify-between flex-shrink-0 border-bottom border-contrast-lower padding-x-sm padding-y-xs">
+				<p id="drawer-cart-title" class="text-base text-truncate">Vaša korpa</p>
+
+				<button class="reset drawer__close-btn js-drawer__close js-tab-focus" id="close-test">
+					<svg class="icon icon--xs" viewBox="0 0 16 16">
+						<title>Close drawer panel</title>
+						<g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"
+							stroke-miterlimit="10">
+							<line x1="13.5" y1="2.5" x2="2.5" y2="13.5"></line>
+							<line x1="2.5" y1="2.5" x2="13.5" y2="13.5"></line>
+						</g>
+					</svg>
+				</button>
+			</header>
+
+			<div class="drawer__body padding-x-sm padding-bottom-sm js-drawer__body">
+				<template v-if="cart.items.length > 0">
+					<template v-for=" item in cart.items">
+						<ol>
+							<li class="dr-cart__product">
+								<template v-if="item.image">
+									<a :href="item.url" class="dr-cart__img">
+										<img class="" :src="item.image" alt="" />
+									</a>
+								</template>
+								<div>
+									<p class="text-sm font-bold">${item.title}</p>
+									<div class="margin-top-xxxs">
+										<div class="select dr-cart__select">
+											<label class="form-label margin-bottom-xxs" for="input-name">Količina</label>
+											<input @change="update_cart(item.variant_id, item.quantity)" type="number"
+												class="form-control width-xxxl eventBtn" name="updates[]" :id="'updates_'+item.key"
+												v-model="item.quantity" min="1" aria-label="{{ 'cart.general.item_quantity' | t }}" />
+										</div>
+									</div>
+								</div>
+
+								<div class="text-right">
+									<p class="text-sm" v-html="item.formatted_final_price"></p>
+									<button class="dr-cart__remove-btn margin-top-md"
+										@click="remove_from_cart(item.variant_id)">Ukloni</button>
+								</div>
+							</li>
+						</ol>
+					</template>
+				</template>
+				<template v-else>
+					<div class="text-center margin-y-lg">
+						<p>Vasa Korpa je prazna</p>
+					</div>
+				</template>
+			</div>
+
+			<div class="padding-x-sm padding-y-xs border-top border-contrast-lower flex-shrink-0">
+				<div class="flex justify-between">
+					<p>Ukupno:</p>
+					<p v-html="cart.formatted_total_price"></p>
+				</div>
+				<a href="/checkout/" class="btn btn--primary btn--md width-100% margin-top-xs">Poruči &rarr;</a>
+				<a href="/cart" class="btn width-100% margin-y-xs">Vaša Korpa</a>
+			</div>
+		</div>
+	</div>
+</div>
+<a class="back-to-top js-back-to-top" href="#" data-offset="100" data-duration="300">
+	<svg class="icon" viewBox="0 0 16 16">
+		<title>Go to top of page</title>
+		<g stroke-width="1" stroke="currentColor">
+			<polyline fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+				points="15.5,11.5 8,4 0.5,11.5 "></polyline>
+		</g>
+	</svg>
+</a>
+
+<script>
+	const MiniCartOptions = {
+		store,
+		delimiters: ["${", "}"],
+
+		created() {
+			store.dispatch("get_cart");
+		},
+		computed: {
+			cart() {
+				return store.state.cart;
+			},
+		},
+		methods: {
+			update_cart(id, qty) {
+				store.dispatch("update_cart", { id, qty });
+			},
+
+			remove_from_cart(id) {
+				const qty = 0;
+				store.dispatch("update_cart", { id, qty });
+			},
+		},
+	};
+	const MiniCartPage = Vue.createApp(MiniCartOptions);
+	MiniCartPage.mount("#mini-cart");
+	MiniCartPage.use(store);
+</script>

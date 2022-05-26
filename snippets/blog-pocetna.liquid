@@ -1,0 +1,41 @@
+<div class="articles padding-top-xl margin-bottom-xxl">
+	<div class="container max-width-adaptive-lg">
+		<div class="text-center margin-bottom-lg">
+			<p class="text-xl text-bold">Tupperware posuđe <br />Saveti i korisne informacije</p>
+		</div>
+		<div class="grid gap-lg">
+			{% for article in blogs.Svi.articles %}
+			{% if article.tags contains 'pocetna' %}
+			<article class="story col-4@md">
+				<a href="{{ article.url }}" class="story__img">
+					{%- if article.image -%}
+					<figure class="media-wrapper media-wrapper--4:3">
+						<img src="{{ article.image | img_url: '300x300' }}" alt="" />
+					</figure>
+					{%- endif -%}
+				</a>
+				<div class="story__content">
+					<!-- <div class="margin-bottom-xs">
+						{%- for tag in article.tags -%}
+						<a class="story__category" href="{{ blog.url }}/tagged/{{ tag | handle }}">
+							<i>{{ tag }}</i>
+						</a>
+						{%- endfor -%}
+					</div> -->
+					<div class="text-component">
+						<h2 class="story__title text-md">
+							<a href="{{ article.url }}">{{ article.title }}</a>
+						</h2>
+						<p>
+							{{ article.content | strip_html | strip_newlines | truncatewords: 25 }}
+						</p>
+					</div>
+				</div>
+			</article>
+			{%- endif -%}
+
+			{%- endfor -%}
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,78 @@
+<div class="articles padding-top-xl margin-bottom-xxl">
+	<div class="container max-width-adaptive-lg">
+		<div class="grid gap-lg">
+			{% for article in blogs.Svi.articles %} {% if article.tags contains 'Eko' %}
+			<article class="story story--featured">
+				<a href="{{ article.url }}" class="story__img">
+					{%- if article.image -%}
+					<figure class="media-wrapper media-wrapper--4:3">
+						<img src="{{ article.image | img_url: 'master' }}" alt="" />
+					</figure>
+					{%- endif -%}
+				</a>
+				<div class="story__content">
+					<div class="margin-bottom-xs">
+						{%- for tag in article.tags -%}
+						<a class="story__category" href="{{ blog.url }}/tagged/{{ tag | handle }}">
+							<i>{{ tag }}</i>
+						</a>
+						{%- endfor -%}
+					</div>
+					<div class="text-component">
+						<h2 class="story__title">
+							<a href="{{ article.url }}">{{ article.title }}</a>
+						</h2>
+						<p>
+							{{ article.content | strip_html | strip_newlines | truncatewords: 40 }}
+						</p>
+					</div>
+					<div class="margin-top-sm">
+						<div class="line-height-xs">
+							<!-- <address class="story__author-name">
+								<a href="#" rel="author">{{ article.author }} </a>
+							</address> -->
+							<p class="story__meta">
+								<time>{{ article.created_at | date: "%d/%m/%Y" }}</time>
+							</p>
+						</div>
+					</div>
+				</div>
+			</article>
+			{% endif %} {% endfor %} {%- for article in blog.articles -%}
+			<article class="story col-4@md">
+				<a href="{{ article.url }}" class="story__img">
+					{%- if article.image -%}
+					<figure class="media-wrapper media-wrapper--4:3">
+						<img src="{{ article.image | img_url: '300x300' }}" alt="" />
+					</figure>
+					{%- endif -%}
+				</a>
+				<div class="story__content">
+					<!-- <div class="margin-bottom-xs">
+						{%- for tag in article.tags -%}
+						<a class="story__category" href="{{ blog.url }}/tagged/{{ tag | handle }}">
+							<i>{{ tag }}</i>
+						</a>
+						{%- endfor -%}
+					</div> -->
+					<div class="text-component">
+						<h2 class="story__title">
+							<a href="{{ article.url }}">{{ article.title }}</a>
+						</h2>
+					</div>
+					<div class="margin-top-sm">
+						<div class="line-height-xs">
+							<address class="story__author-name">
+								<a href="#" rel="author">{{ article.author }} </a>
+							</address>
+							<p class="story__meta">
+								<time>{{ article.created_at | date: "%d/%m/%Y" }}</time>
+							</p>
+						</div>
+					</div>
+				</div>
+			</article>
+			{%- endfor -%}
+		</div>
+	</div>
+</div>

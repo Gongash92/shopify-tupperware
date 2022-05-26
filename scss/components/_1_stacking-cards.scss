@@ -1,0 +1,75 @@
+#hero {
+  //margin-top: 70px;
+  margin-bottom: var(--space-lg);
+  @include breakpoint(md) {
+    //width: calc(100% - 2 * var(--component-padding)) !important;
+    margin-bottom: var(--space-xl);
+  }
+}
+
+.stack-cards {
+  --stack-cards-gap: var(--space-sm); // cards gap on scrolling
+  --stack-cards-item-ratio: 2/1;
+}
+
+.stack-cards__item {
+  position: relative; // fallback for browsers not supporting sticky position
+  position: sticky;
+  top: var(--space-md); // cards top position when they get fixed
+  height: calc(80vh);
+  max-height: 667px;
+  border-radius: var(--radius-md);
+  //padding-bottom: calc(100%/(var(--stack-cards-item-ratio)));
+  transform-origin: center top;
+  background-size: cover;
+  background-position: center;
+  @include breakpoint(md) {
+    background-position: center;
+    border-radius: var(--radius-lg);
+    max-height: calc(90vh);
+  }
+
+  > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.stack-cards__image {
+  &:nth-child(1) {
+    background-image: url("//cdn.shopify.com/s/files/1/0505/2884/6000/t/3/assets/olovka-preuzmi-ulogu-mobile.jpg?v=9618981941662395943");
+    @include breakpoint(md) {
+      background-image: url("//cdn.shopify.com/s/files/1/0505/2884/6000/t/3/assets/olovka-preuzmi-ulogu-desktop.jpg?v=10714072595337926337");
+    }
+  }
+
+  &:nth-child(2) {
+    background-image: url("//cdn.shopify.com/s/files/1/0505/2884/6000/t/3/assets/aparat-transformisite-zivot-mobile.jpg?v=17176798963940175993");
+    @include breakpoint(md) {
+      background-image: url("//cdn.shopify.com/s/files/1/0505/2884/6000/t/3/assets/aparat-transformisite-zivot-desktop.jpg?v=3453172218177043334");
+    }
+  }
+
+  &:nth-child(3) {
+    background-image: url("//cdn.shopify.com/s/files/1/0505/2884/6000/t/3/assets/ugalj-mobile.jpg?v=15597433936951087594");
+    @include breakpoint(md) {
+      background-image: url("//cdn.shopify.com/s/files/1/0505/2884/6000/t/3/assets/ugalj-desktop.jpg?v=17863487491580072067");
+    }
+  }
+
+  &:nth-child(4) {
+    background-image: url("//cdn.shopify.com/s/files/1/0505/2884/6000/t/3/assets/formula-mobile.jpg?v=9031212723469096688");
+    @include breakpoint(md) {
+      background-image: url("//cdn.shopify.com/s/files/1/0505/2884/6000/t/3/assets/formula-desktop.jpg?v=12764789037851929002");
+    }
+  }
+}
+
+
+
+
+

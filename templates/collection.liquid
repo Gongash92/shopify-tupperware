@@ -1,0 +1,358 @@
+{% comment %} START Osnovni Proizvodi{% endcomment %}
+<section id="collection-all" class="padding-bottom-md">
+	<div v-if="filteredPosts.length > 0">
+		<div class="container max-width-adaptive-lg">
+			<div class="text-component margin-y-xl max-width-sm">
+				<h1 class="font-normal">{{ collection.title }}</h1>
+				<p>{{ collection.description }}</p>
+			</div>
+
+			<div class="hide@md ">
+				<!-- Mobile Filters -->
+				<div class="flex justify-between items-center margin-y-md">
+					<div>
+						<p class="text-sm">Ukupno proizvoda: ${filteredPosts.length} </p>
+					</div>
+
+					<div class="inline-flex items-baseline">
+						<label class="text-sm color-contrast-medium margin-right-xs" for="selectThis"></label>
+
+						<div class="select inline-block js-select"
+							data-trigger-class="reset text-sm color-contrast-high text-underline inline-flex items-center cursor-pointer js-tab-focus">
+							<select name="selectThis" id="selectThis" v-model="filter" v-on:change="change(filter)">
+								<option value="" disabled selected style="display: none;">Sortiraj po</option>
+								<option v-for="i in filters">${i}</option>
+							</select>
+
+							<svg class="icon icon--xxxs margin-left-xxs" viewBox="0 0 8 8">
+								<path
+									d="M7.934,1.251A.5.5,0,0,0,7.5,1H.5a.5.5,0,0,0-.432.752l3.5,6a.5.5,0,0,0,.864,0l3.5-6A.5.5,0,0,0,7.934,1.251Z" />
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Mobile Filters -->
+			<div class="flex items-center justify-between margin-top-xl margin-bottom-md items-center display@md ">
+				<div class="flex justify-start gap-sm ">
+					<!-- <nav class="breadcrumbs text-sm" aria-label="Breadcrumbs">
+					<ol class="flex flex-wrap gap-xxs">
+						<li class="breadcrumbs__item">
+							<a href="#0" class="color-inherit">Home</a>
+							<span class="color-contrast-low margin-left-xxs" aria-hidden="true">/</span>
+						</li>
+
+						<li class="breadcrumbs__item">
+							<a href="#0" class="color-inherit">Gallery</a>
+							<span class="color-contrast-low margin-left-xxs" aria-hidden="true">/</span>
+						</li>
+
+						<li class="breadcrumbs__item">
+							<a href="#0" class="color-inherit">Web</a>
+							<span class="color-contrast-low margin-left-xxs" aria-hidden="true">/</span>
+						</li>
+
+						<li class="breadcrumbs__item" aria-current="page">Project</li>
+					</ol>
+				</nav> -->
+				</div>
+
+				<div class="flex justify-end gap-sm items-end">
+					<div>
+						<p class="">Ukupno proizvoda: ${filteredPosts.length} </p>
+					</div>
+
+					<div class="inline-flex items-baseline">
+						<label class=" color-contrast-medium margin-right-xs" for="selectThis"></label>
+
+						<div class="select inline-block js-select"
+							data-trigger-class="reset  color-contrast-high text-underline inline-flex items-center cursor-pointer js-tab-focus">
+							<select name="selectThis" id="selectThis" v-model="filter" v-on:change="change(filter)">
+								<option value="" disabled selected style="display: none;">Sortiraj po</option>
+								<option v-for="i in filters">${i}</option>
+							</select>
+
+							<svg class="icon  icon--xxxs margin-left-xxs" viewBox="0 0 8 8">
+								<path
+									d="M7.934,1.251A.5.5,0,0,0,7.5,1H.5a.5.5,0,0,0-.432.752l3.5,6a.5.5,0,0,0,.864,0l3.5-6A.5.5,0,0,0,7.934,1.251Z" />
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container max-width-adaptive-lg">
+			<div class="grid gap-xl@md gap-x-xs gap-y-md">
+
+				<template v-for="(post, index) in filteredPosts" :key="index">
+					<div class="prod-card-v2 col-4@md col-6">
+
+						<a class="prod-card-v2__img-link" :href="post.product_url" aria-label="Description of the link">
+							<figure>
+								<img :src="post.image" :alt="post.altTag">
+								<template
+									v-if="post.image_two ==='https://cdn.shopify.com/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c.gif'">
+									<img :src="post.image_two || post.image_3" :alt="post.altTag" aria-hidden="true">
+
+								</template>
+							</figure>
+						</a>
+
+						<div class="grid">
+							<div class="padding-xs flex items-start justify-between justify-between@md gap-x-sm@md" id="mobile-products">
+								<div class="text-left items-start width-70%@md width collection-product">
+									<p class="product-card-v2__title">
+										<a :href="post.product_url" v-html="post.title"></a>
+									</p>
+								</div>
+
+								<div class="text-right items-start grid justify-between" id="text-left">
+
+									<template v-if="post.price_money_2 > '0'">
+										<span class="prod-card-v2__badge">Akcija</span>
+										<span class="prod-card-v2__old-price margin-left-xxs@xl text-sm col-12">${formatPrice(post.price_money_2)} RSD</span>
+									</template>
+
+									<template v-if="post.tag === 'Novo'">
+										<span class="prod-card-v2__badge-novo">Novo</span>
+									</template>
+
+									<span class="prod-card-v2__price">${formatPrice(post.price_money)} RSD</span>
+
+								</div>
+
+							</div>
+							<template v-if="post.available === 'true'">
+								<div class="margin-bottom-sm@lg margin-top-sm margin-top-0@md padding-xs@lg flex display@md">
+									<button
+										class="btn btn--md btn--primary margin-top-md margin-bottom-lg shadow-lg margin-x-auto flex-grow"
+										@click="add_to_cart(post.variant_id)">Dodaj u
+										Korpu</button>
+								</div>
+							</template>
+							<template v-else>
+								<div class="margin-bottom-sm@lg margin-top-sm margin-top-0@md padding-xs@lg flex display@md">
+									<button
+										class="btn btn--md btn--primary margin-top-md margin-bottom-lg shadow-lg margin-x-auto flex-grow"
+										disabled>Rasprodato</button>
+								</div>
+							</template>
+
+							<div class="margin-bottom-sm@lg margin-top-sm margin-top-0@md flex hide@md">
+								<template v-if="post.available === 'true'">
+
+									<button class="btn btn--primary btn--sm flex-grow" @click="add_to_cart(post.variant_id)">Dodaj <svg
+											class="icon margin-left-xxxs" viewBox="0 0 24 24">
+											<title>Go to cart page</title>
+											<g class="icon__group" fill="none" stroke-linecap="square" stroke-linejoin="miter"
+												stroke="currentColor">
+												<polyline points="4,4 22,4 19,14 4,14 "></polyline>
+												<circle cx="4" cy="22" r="2" fill="currentColor" stroke="none"></circle>
+												<circle cx="20" cy="22" r="2" fill="currentColor" stroke="none"></circle>
+												<polyline points="1,1 4,4 4,14 2,18 23,18 " stroke-linecap="butt"></polyline>
+											</g>
+										</svg>
+									</button>
+								</template>
+								<template v-else>
+									<button class="btn btn--subtle btn--sm flex-grow" disabled>Rasprodato</button>
+								</template>
+							</div>
+						</div>
+					</div>
+				</template>
+			</div>
+		</div>
+	</div>
+	<div v-else>
+		<section class="margin-y-xxxl">
+			<div class="container max-width-sm margin-y-lg">
+				<div class="text-component text-center margin-bottom-lg">
+					<h2>Budite još malo strpljivi 😊</h2>
+					<p>Nova Akcijska ponuda je uskoro online ! U međuvremenu možete da pogledate ostale proizvode iz standardnog
+						kataloga:
+					</p>
+					<p><a href="/collections/">Svi proizvodi</a> ili <a href="/pages/kontakt">Kontakt</a>.</p>
+				</div>
+
+				<div class="block margin-left-auto margin-right-auto  text-center" aria-lable="404 animation">
+					<a href="/">
+						<img src="{{ 'tupperware-logo.svg' | asset_url }}" width="207" height="32" alt="" srcset="" />
+					</a>
+				</div>
+			</div>
+		</section>
+	</div>
+</section>
+
+<script>
+	const collectionOptions = {
+		delimiters: ['${', '}'],
+		store,
+
+		// vracane objekta sa vrijednostima
+		data() {
+
+			return {
+				sortBy: 'name',
+				sortDirection: 'asc',
+				currentPage: 1,
+				postsPerPage: 9,
+				showloader: false,
+				selectedCategory: "All",
+				filters: ["Cena veća/manja", "Cena manja/veća"],
+				filter: "",
+
+
+				upsells: [
+
+					{% for product in collection.products %}
+			{
+				title: "{{ product.title }}",
+					available: "{{ product.available }}",
+						handle: "{{ product.handle }}",
+							product_id: "{{ product.id }}",
+								variant_id: "{{ product.selected_or_first_available_variant.id }}",
+									price_money_2: "{{ product.compare_at_price_min }}",
+										product_url: "{{ product.url | within: collection }}",
+											price_money: "{{ product.price }}",
+												image: "{{ product.featured_image | | img_url: 'master' }}",
+													image_two: "{{ product.images[1] | product_img_url: 'master' }}",
+														tag: "{{ product.tags }}",
+															type: "{{ product.type }}",
+																image_3: "{{ product.featured_image | | img_url: 'master' }}",
+																	altTag: "{{ product.featured_image.alt | escape }}",
+
+
+																		{% for collection in product.collections %}
+
+			name: "{{ collection.title }}",
+
+				{% endfor %}
+
+	},
+		{% endfor %}
+
+        ],
+
+	colors: [],
+		collections: [],
+			test: [],
+				all: [],
+					keyword: '',
+						sortBy: 'name',
+
+      }
+    },
+	mounted() {
+
+
+	},
+
+	//poziva se sinhrono nakon kreiranja instance vrijednosti u korpi
+	created() {
+		store.dispatch('get_cart').then(() => this.loading = false);
+	},
+
+	// dobijanje vrijednosti korpe
+	computed: {
+		cart() {
+			return store.state.cart;
+		},
+
+		// dobijanje svih proizvoda
+		allPosts() {
+			return Object.keys(this.upsells).map(pid => this.upsells[pid])
+		},
+		//filtriranje proizvoda
+		filteredPosts() {
+			if (this.collections === "All") {
+				return this.upsells;
+			} else {
+				return this.upsells.filter((item) => {
+					return (this.keyword.length === 0 || item.name.includes(this.keyword)) &&
+						(this.colors.length === 0 || this.colors.includes(item.tag)) &&
+						(this.collections.length === 0 || this.collections.includes(item.type)) &&
+						(this.test.length === 0 || this.test.includes(item.name))
+					console.log(item.test_collection.name)
+				})
+			}
+			;
+			if (this.image_two === "no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c.gif") {
+				return this.image_3;
+
+			}
+		},
+
+		totalPages() {
+			return Math.ceil(this.allPosts.length / this.postsPerPage)
+		}
+	},
+	// sortiranje po cijeni
+	methods: {
+		change: function (par) {
+			switch (par) {
+				case "Cena manja/veća":
+					return this.sortLowest();
+					break;
+				case "Cena veća/manja":
+					return this.sortHighest();
+					break;
+			}
+		},
+		// dobijanje vrijednosti korpe
+		get_cart() {
+			$.get('/cart.js')
+				.then(response => JSON.parse(response))
+				.then(cart => {
+					this.set_cart(cart);
+
+				})
+
+		},
+		// funkcije za sortiranje proizvoda
+		sortLowest() {
+			this.upsells.sort((a, b) => parseFloat(a.price_money) > parseFloat(b.price_money) ? 1 : -1);
+		},
+		sortHighest() {
+			this.upsells.sort((a, b) => parseFloat(a.price_money) < parseFloat(b.price_money) ? 1 : -1);
+		},
+
+		// dodavanje u korpu
+		add_to_cart(id) {
+			store.dispatch('add_to_cart', id);
+			this.closeMiniCart();
+
+		},
+
+		// formatiranje cene proizvoda
+		formatPrice(value) {
+			let val = (value / 100).toFixed(2).replace('.', ',')
+	      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+		},
+
+		// manipulacija sa cart drawerom otvaranje na dodavanje i na klik zatvaranje
+		closeMiniCart() {
+
+			$('#cart-drawer-1').addClass('drawer--is-visible');
+			// $('.mini-cart .dropdown-menu').addClass('show');
+			$('#close-test').click(function () {
+				$("#cart-drawer-1").removeClass('drawer--is-visible');
+			});
+
+		},
+
+
+	}
+
+  };
+
+	// naziv sekcije koja ide preko Vue mora biti jedinstvena
+	const collectionPage = Vue.createApp(collectionOptions)
+	collectionPage.mount('#collection-all');
+	collectionPage.use(store);
+
+
+</script>

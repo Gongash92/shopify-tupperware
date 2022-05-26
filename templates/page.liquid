@@ -1,0 +1,112 @@
+<view-container id="app">
+	<view-head>
+		<h3>Products</h3>
+	</view-head>
+
+	<view-controls>
+		<div v-for="(filterset, key) in filters" style="min-width: 20ch">
+			<h6 v-text="`Filter by ${key}`"></h6>
+			<ul class="list-unstyled">
+				<li class="form-check" v-for="filter in filterset">
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" name="filters" v-bind:value="filter" v-model="activeFilters" />
+						<span v-text="filter"></span>
+					</label>
+				</li>
+			</ul>
+		</div>
+		<p v-if="activeFilters.length">
+			<button class="btn btn-sm btn-secondary" type="button" v-on:click="clearFilters">Clear Filters</button>
+		</p>
+	</view-controls>
+
+	<view-content>
+		<h6 v-text="`${filteredProducts.length} results`"></h6>
+		<p v-if="activeFilters.length">
+			<small class="text-muted" v-text="`Filtered by ${activeFilters.join(', ')}`"></small>
+		</p>
+		<product-grid>
+			<div class="card" v-for="product in filteredProducts">
+				<img class="card-img-top" src="http://fpoimg.com/300x200" alt="" />
+				<div class="card-block">
+					<h5 class="card-title" v-text="product.name"></h5>
+					<p class="card-text">
+						<span v-text="`Price: $${product.price.toFixed(2)}`"></span>
+						<br />
+						<span v-text="`Skill: ${product.skill}`"></span>
+						<br />
+						<span v-text="`Usage: ${product.usage}`"></span>
+					</p>
+					<a class="btn btn-primary" href="#">Buy</a>
+				</div>
+			</div>
+		</product-grid>
+	</view-content>
+
+	<view-foot>
+		<p>
+			<small class="text-muted" v-text="`${products.length} total / ${filteredProducts.length} shown`"></small>
+		</p>
+	</view-foot>
+</view-container>
+<script src="//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.23.0/ramda.min.js"></script>
+<script>
+	const products = [
+		{ name: "Product 1", usage: "Home", skill: "Easy", price: 100.0 },
+		{ name: "Product 2", usage: "Home", skill: "Intermediate", price: 120.0 },
+		{ name: "Product 3", usage: "Office", skill: "Intermediate", price: 190.0 },
+		{ name: "Product 4", usage: "Office", skill: "Advanced", price: 260.0 },
+		{ name: "Product 5", usage: "Warehouse", skill: "Advanced", price: 320.0 },
+		{ name: "Product 6", usage: "Farm", skill: "Intermediate", price: 120.0 },
+		{ name: "Product 7", usage: "Space", skill: "Advanced", price: 157920.0 },
+		{ name: "Product 8", usage: "Bathroom", skill: "Easy", price: 9.0 },
+	];
+
+	const tru = (val) => Boolean(val) === true;
+
+	const hashValues = () => location.hash.replace(/^#/, "").split(",").filter(tru);
+
+	const activeFilters = hashValues();
+
+	const vm = new Vue({
+		el: "#app",
+		data: {
+			get uses() {
+				return R.pipe(R.pluck("usage"), R.uniq)(products);
+			},
+			get skills() {
+				return R.pipe(R.pluck("skill"), R.uniq)(products);
+			},
+			get filters() {
+				return {
+					Usage: this.uses,
+					Skill: this.skills,
+				};
+			},
+			get filteredProducts() {
+				// products that have either a skill or usage value present within active filters
+				if (!this.activeFilters.length) return this.products;
+				return this.products.filter((prod) => [prod.skill, prod.usage].some((val) => this.activeFilters.includes(val)));
+			},
+			activeFilters,
+			products,
+		},
+		methods: {
+			clearFilters() {
+				this.activeFilters.splice(0, this.activeFilters.length);
+			},
+		},
+		watch: {
+			activeFilters: (newVal) => {
+				location.hash = newVal.join(",");
+			},
+		},
+	});
+
+	window.onhashchange = () => {
+		activeFilters.splice(0, activeFilters.length, ...hashValues());
+	};
+	//# sourceURL=pen.js
+</script>

@@ -1,0 +1,20 @@
+/* --------------------------------
+
+File#: _4_intro
+Title: Intro
+Descr: Intro section including the main header and a hero component
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.intro {
+   // update variable according to the header component you're using
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media (min-width: 300px) and (max-width: 767px) {
+    background: #9BD893 !important;
+    padding-top: 0px;
+  }
+}

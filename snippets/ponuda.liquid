@@ -1,0 +1,167 @@
+<section class="products-gallery margin-top-xxl@md margin-y-lg">
+	<div class="container max-width-adaptive-lg">
+		<div class="margin-bottom-xs margin-bottom-md@md">
+			<div class="flex justify-center items-end justify-between@md">
+				<h2 class="text-lg text-xxl@md">Izdvajamo iz ponude samo za vas</h2>
+				<a href="/collections/akcijska-ponuda" class="btn btn--md btn--subtle display@md" role="text">Pogledajte sve
+					proizvode<i class="sr-only"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="carousel carousel-v2 flex flex-column js-carousel" data-drag="on" data-loop="on">
+		<p class="sr-only">Carousel items</p>
+
+		<div class="carousel__wrapper position-relative overflow-hidden" id="collection-cart">
+			<template v-if="upsells.length > 0">
+				<ol class="carousel__list card__wrap--outer">
+					<template v-for="(upsell, index) in upsells">
+						<li class="carousel__item card__wrap--inner">
+							<div class="card">
+
+								<a :href="upsell.product_url" class="card-v5__img-link" aria-label="Description of the link">
+									<figure class="card-v5__img">
+										<img :src="upsell.image" :alt="upsell.altTag" />
+									</figure>
+								</a>
+								<div class="card__sub">
+									<span class="badge badge--primary-light text-sm" style="place-self: flex-start;"
+										v-html="upsell.name_collection"></span>
+								</div>
+								<div class="card__item flexible">
+									<p class="text-md text-bold " v-html="upsell.title"></p>
+
+								</div>
+								<div class="card__item items-center">
+									<template v-if="upsell.price_money_2 > '0'">
+										<div class="prod-card__price prod-card__price--old text-sm">${formatPrice(upsell.price_money_2)} RSD
+										</div>
+									</template>
+
+									<div class="prod-card__price text-md@md align-baseline" v-html="upsell.price_money"></div>
+								</div>
+								<div class="card__footer">
+									<button class="btn btn--primary shadow-sm flex width-100%" role="text"
+										@click="add_to_cart(upsell.variant_id)">Dodaj
+										u korpu</button>
+								</div>
+							</div>
+						</li>
+					</template>
+				</ol>
+			</template>
+
+			<nav class="no-js:is-hidden">
+				<ul
+					class="position-absolute top-0 left-0 bottom-0 right-0 pointer-events-none flex items-center justify-between">
+					<li>
+						<button class="reset carousel-v2__control carousel-v2__control--prev js-carousel__control js-tab-focus">
+							<svg class="icon" viewBox="0 0 20 20">
+								<title>Show previous items</title>
+								<polyline points="13 18 5 10 13 2" fill="none" stroke="currentColor" stroke-miterlimit="10"
+									stroke-width="2" />
+							</svg>
+						</button>
+					</li>
+
+					<li>
+						<button class="reset carousel-v2__control carousel-v2__control--next js-carousel__control js-tab-focus">
+							<svg class="icon" viewBox="0 0 20 20">
+								<title>Show next items</title>
+								<polyline points="7 18 15 10 7 2" fill="none" stroke="currentColor" stroke-miterlimit="10"
+									stroke-width="2" />
+							</svg>
+						</button>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</section>
+
+<script>
+	const collectionCartOptions = {
+		delimiters: ['${', '}'],
+		store,
+
+		data() {
+
+			return {
+
+				upsells: [
+
+					{% for product in collections['akcijska-ponuda'].products %}
+			{
+				title: "{{ product.title }}",
+					handle: "{{product.handle}}",
+						image: "{{ product.featured_image | | img_url: 'master' }}",
+							product_id: "{{product.id}}",
+								variant_id: "{{product.selected_or_first_available_variant.id}}",
+									price_money: "{{ product.price | money }}",
+										name_collection: "{{collection.title}}",
+											product_url: "{{ product.url }}",
+												altTag: "{{ product.featured_image.alt | escape }}",
+													price_money_2: "{{ product.compare_at_price_min }}",
+														tag: "{{ product.tags }}",
+
+
+															{% for collection in product.collections %}
+
+			name_collection: "{{ collection.title }}",
+
+				{% endfor %}
+	},
+		{% endfor %}
+
+	      ],
+
+
+	    }
+	  },
+
+	created() {
+		store.dispatch('get_cart').then(() => this.loading = false);
+	},
+	computed: {
+		cart() {
+			return store.state.cart;
+		},
+	},
+	methods: {
+		get_cart() {
+			$.get('/cart.js')
+				.then(response => JSON.parse(response))
+				.then(cart => {
+					this.set_cart(cart);
+
+				})
+
+		},
+		add_to_cart(id) {
+			store.dispatch('add_to_cart', id);
+			this.closeMiniCart();
+
+		},
+
+
+		closeMiniCart() {
+
+			$('#cart-drawer-1').addClass('drawer--is-visible');
+			// $('.mini-cart .dropdown-menu').addClass('show');
+			$('#close-test').click(function () {
+				$("#cart-drawer-1").removeClass('drawer--is-visible');
+			});
+
+		},
+		formatPrice(value) {
+			let val = (value / 100).toFixed(2).replace('.', ',')
+			return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+		}
+	}
+
+
+	};
+	const collectionCartPage = Vue.createApp(collectionCartOptions)
+	collectionCartPage.mount('#collection-cart');
+	collectionCartPage.use(store);
+</script>
